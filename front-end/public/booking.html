@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>MedcineNet | booking</title>
+    <style>
+      td,
+      th {
+        border: 1px rgb(78, 78, 78) solid;
+        padding: 10px 16px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <header
+      class="z-10 w-full h-[82px] bg-gradient-to-r from-sky-500 to-indigo-700 text-gray-300 flex items-center justify-between px-6 mb-20"
+    >
+      <a
+        href="http://localhost/hospital/front-end/public/booking.html"
+        class="text-4xl"
+        >MedicineNet</a
+      >
+      <nav>
+        <ul class="flex items-center justify-between text-lg">
+          <li>
+            <p class="px-4 py-2 cursor-pointer" id="log_out">log out</p>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="bg-gradient-to-r from-grey-500 to-grey-300">
+      <div class="text-center text-4xl font-extrabold" id="error"></div>
+      <div style="margin: 40px auto" class="flex flex-col w-10/12">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 cnt">
+          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+              <table class="min-w-full">
+                <thead class="border-b">
+                  <tr>
+                    <th scope="col" class="th">id</th>
+                    <th scope="col" class="th">topic</th>
+                    <th scope="col" class="th">date of appointment</th>
+                    <th scope="col" class="th">start time of appointment</th>
+                    <th scope="col" class="th">end time of appointment</th>
+                    <th scope="col" class="th">action</th>
+                    <th scope="col" class="th">action</th>
+                  </tr>
+                </thead>
+                <tbody id="table"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <input
+          type="button"
+          value="add appointment"
+          class="bg-sky-600 py-3 px-8 mx-auto mt-5 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
+        />
+      </div>
+    </main>
+    <script src="booking.js"></script>
+  </body>
+</html>
