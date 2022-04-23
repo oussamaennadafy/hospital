@@ -1,4 +1,6 @@
+///////////////////  session user  //////////////////////
 const data = window.sessionStorage.getItem("data");
+////////////////////  elements  ///////////////////////////
 const log_out = document.querySelector("#log_out");
 const error = document.querySelector("#error");
 const table = document.querySelector(".table");
@@ -87,3 +89,6 @@ log_out.addEventListener("click", () => {
   window.sessionStorage.removeItem("data");
   window.location.replace("http://localhost/hospital/front-end/public");
 });
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////

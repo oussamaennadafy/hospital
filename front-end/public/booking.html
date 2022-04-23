@@ -33,8 +33,8 @@
       </nav>
     </header>
     <main class="bg-gradient-to-r from-grey-500 to-grey-300">
-      <div class="text-center text-4xl font-extrabold" id="error"></div>
-      <div style="margin: 40px auto" class="flex flex-col w-10/12">
+      <div class="text-center text-4xl font-semibold" id="error"></div>
+      <div class="flex flex-col w-10/12 mx-auto mb-9">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 cnt">
           <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
@@ -58,8 +58,45 @@
         <input
           type="button"
           value="add appointment"
-          class="bg-sky-600 py-3 px-8 mx-auto mt-5 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
+          class="bg-sky-600 py-3 px-8 mb-14 mx-auto mt-9 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
         />
+      </div>
+      <div
+        class="w-6/12 h-5/6 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded opacity-90 pt-4"
+      >
+        <form class="flex flex-col justify-between gap-4">
+          <div class="w-7/12 flex justify-between mx-auto">
+            <label for="topic">topic</label>
+            <input class="w-48" type="text" name="topic" id="topic" />
+          </div>
+          <div class="w-7/12 flex justify-between mx-auto">
+            <label for="date_appointment">date_appointment</label>
+            <input
+              class="w-48"
+              type="date"
+              name="date_appointment"
+              id="date_appointment"
+            />
+          </div>
+          <div class="w-7/12 flex justify-between mx-auto">
+            <label for="start_appointment">start appointment</label>
+            <input
+              class="w-48"
+              type="time"
+              name="start_appointment"
+              id="start_appointment"
+            />
+          </div>
+          <div class="w-7/12 flex justify-between mx-auto">
+            <label for="end_appointment">end appointment</label>
+            <input
+              class="w-48"
+              type="time"
+              name="end_appointment"
+              id="end_appointment"
+            />
+          </div>
+        </form>
       </div>
     </main>
     <script src="booking.js"></script>
