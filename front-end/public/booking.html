@@ -62,35 +62,46 @@
         />
       </div>
       <div
-        class="w-6/12 h-5/6 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded opacity-90 pt-4"
+        class="w-6/12 h-5/6 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded pt-4"
       >
         <form class="flex flex-col justify-between gap-4">
-          <div class="w-7/12 flex justify-between mx-auto">
-            <label for="topica">topic</label>
-            <input class="w-48" type="text" name="topic" id="topic" />
-          </div>
-          <div class="w-7/12 flex justify-between mx-auto">
-            <label for="date_appointment">date_appointment</label>
+          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+            <label class="text-lg text-white" for="topic">topic</label>
             <input
-              class="w-48"
+              class="w-1/1 p-2 rounded"
+              type="text"
+              name="topic"
+              id="topic"
+            />
+          </div>
+          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+            <label class="text-lg text-white" for="date_appointment"
+              >date_appointment</label
+            >
+            <input
+              class="w-1/1 p-2 rounded"
               type="date"
               name="date_appointment"
               id="date_appointment"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto">
-            <label for="start_appointment">start appointment</label>
+          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+            <label class="text-lg text-white" for="start_appointment"
+              >start appointment</label
+            >
             <input
-              class="w-48"
+              class="w-1/1 p-2 rounded"
               type="time"
               name="start_appointment"
               id="start_appointment"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto">
-            <label for="end_appointment">end appointment</label>
+          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+            <label class="text-lg text-white" for="end_appointment"
+              >end appointment</label
+            >
             <input
-              class="w-48"
+              class="w-1/1 p-2 rounded"
               type="time"
               name="end_appointment"
               id="end_appointment"

@@ -539,8 +539,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1rem;
 }
 
-.mt-4{
-  margin-top: 1rem;
+.mb-1{
+  margin-bottom: 0.25rem;
+}
+
+.mb-5{
+  margin-bottom: 1.25rem;
 }
 
 .block{
@@ -549,10 +553,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .inline-block{
   display: inline-block;
-}
-
-.inline{
-  display: inline;
 }
 
 .flex{
@@ -575,6 +575,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2.5rem;
 }
 
+.h-4{
+  height: 1rem;
+}
+
+.h-24{
+  height: 6rem;
+}
+
+.h-14{
+  height: 3.5rem;
+}
+
 .min-h-full{
   min-height: 100%;
 }
@@ -591,8 +603,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 83.333333%;
 }
 
-.w-5\/12{
-  width: 41.666667%;
+.w-6\/12{
+  width: 50%;
+}
+
+.w-7\/12{
+  width: 58.333333%;
+}
+
+.w-48{
+  width: 12rem;
 }
 
 .w-screen{
@@ -611,52 +631,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 20rem;
 }
 
-.w-4\/12{
-  width: 33.333333%;
-}
-
-.w-6\/12{
-  width: 50%;
-}
-
 .w-11\/12{
   width: 91.666667%;
-}
-
-.w-9\/12{
-  width: 75%;
-}
-
-.w-7\/12{
-  width: 58.333333%;
-}
-
-.w-8{
-  width: 2rem;
-}
-
-.w-20{
-  width: 5rem;
-}
-
-.w-28{
-  width: 7rem;
-}
-
-.w-36{
-  width: 9rem;
-}
-
-.w-48{
-  width: 12rem;
 }
 
 .min-w-full{
   min-width: 100%;
 }
 
-.translate-x-1\/2{
-  --tw-translate-x: 50%;
+.-translate-x-1\/2{
+  --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -667,11 +651,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .translate-x-full{
   --tw-translate-x: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-x-1\/2{
-  --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -695,16 +674,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-between;
 }
 
-.gap-6{
-  gap: 1.5rem;
-}
-
 .gap-4{
   gap: 1rem;
 }
 
-.gap-8{
-  gap: 2rem;
+.gap-6{
+  gap: 1.5rem;
 }
 
 .overflow-hidden{
@@ -779,6 +754,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .to-cyan-200{
   --tw-gradient-to: #a5f3fc;
+}
+
+.p-2{
+  padding: 0.5rem;
+}
+
+.p-4{
+  padding: 1rem;
 }
 
 .px-6{
@@ -862,16 +845,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(17 94 89 / var(--tw-text-opacity));
 }
 
-.opacity-80{
-  opacity: 0.8;
-}
-
-.opacity-60{
-  opacity: 0.6;
-}
-
 .opacity-90{
   opacity: 0.9;
+}
+
+.opacity-80{
+  opacity: 0.8;
 }
 
 .outline{
