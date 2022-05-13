@@ -89,4 +89,4 @@ log_out.addEventListener("click", () => {
   window.sessionStorage.removeItem("data");
   window.location.replace("http://localhost/hospital/front-end/public");
 });
-////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
