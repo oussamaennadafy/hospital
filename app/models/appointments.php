@@ -32,33 +32,32 @@ return $this->result;
 
 // CREATE
 public function createAppointment(){
-// sanitize
-$this->topic=htmlspecialchars(strip_tags($this->topic));
-$this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
-$this->start_appointment=htmlspecialchars(strip_tags($this->start_appointment));
-$this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
-
-if(!empty($this->topic) && !empty($this->date_appointment) && !empty($this->start_appointment) && !empty($this->end_appointment) && !empty($this->key_user)) {
-
- $sqlQuery = " INSERT INTO
- ". $this->db_table ." SET 
- topic = '".$this->topic."',
- date_appointment = '".$this->date_appointment."', 
- key_user = '".$this->key_user."',
- start_appointment = '".$this->start_appointment."',
- end_appointment = '".$this->end_appointment."' ";
+ // sanitize
+ $this->topic=htmlspecialchars(strip_tags($this->topic));
+ $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
+ $this->start_appointment=htmlspecialchars(strip_tags($this->start_appointment));
+ $this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
+ $this->key_user=htmlspecialchars(strip_tags($this->key_user));
  
- $this->db->query($sqlQuery);
 
-}
+  $sqlQuery = "INSERT INTO
+  ". $this->db_table ." SET 
+  topic = '".$this->topic."',
+  date_appointment = '".$this->date_appointment."',
+  start_appointment = '".$this->start_appointment."',
+  end_appointment = '".$this->end_appointment."',
+  key_user = '".$this->key_user."'"
+  ;
+  
+  $this->db->query($sqlQuery);
 
+ 
+ if($this->db->affected_rows > 0){
+ return true;
+ }
+ return false;
+ }
 
-
-if($this->db->affected_rows > 0){
-return true;
-}
-return false;
-}
 
 // read One
 public function getSingleAppointment(){

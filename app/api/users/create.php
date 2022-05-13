@@ -23,7 +23,6 @@ $user = new user($db);
   $user->key_special = rand(0,999999);
  }
 
-
 if($user->createUser()){
 // create array
 $user_arr = array(
