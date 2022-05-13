@@ -114,12 +114,20 @@
               name="end_appointment"
               id="end_appointment"
             />
+            <div class="flex justify-between flex-wrap">
+              <input
+                type="button"
+                value="submit appointment"
+                class="bg-sky-600 py-3 px-8 mb-8 mx-auto mt-2 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
+              />
+              <input
+                id="cancel_form_btn"
+                type="button"
+                value="Cancel"
+                class="bg-yellow-600 py-3 px-8 mb-8 mx-auto mt-2 block cursor-pointer rounded hover:bg-yellow-700 transition-all duration-100"
+              />
+            </div>
           </div>
-          <input
-            type="button"
-            value="submit appointment"
-            class="bg-sky-600 py-3 px-8 mb-4 mx-auto mt-3 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
-          />
         </form>
       </div>
     </main>
@@ -129,10 +137,14 @@
       const add_form = document.querySelector("#add_form");
       const main = document.querySelector("#main");
       const add_form_btn = document.querySelector("#add_form_btn");
+      const cancel_form_btn = document.querySelector("#cancel_form_btn");
 
       add_form_btn.addEventListener("click", () => {
         window.scrollTo(0, 0);
         add_form.classList.remove("scale-0");
+      });
+      cancel_form_btn.addEventListener("click", () => {
+        add_form.classList.add("scale-0");
       });
       ////////////////////////////////////////////////////////////////////////
     </script>
