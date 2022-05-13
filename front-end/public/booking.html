@@ -13,6 +13,9 @@
         padding: 10px 16px;
         text-align: center;
       }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
   <body class="overflow-x-hidden">
@@ -64,7 +67,7 @@
       </div>
       <div
         id="add_form"
-        class="w-6/12 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded transition scale-0"
+        class="w-6/12 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
       >
         <form class="flex flex-col justify-between gap-4 bg-gray-600 rounded">
           <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
@@ -114,7 +117,7 @@
           </div>
           <input
             type="button"
-            value="add appointment"
+            value="submit appointment"
             class="bg-sky-600 py-3 px-8 mb-4 mx-auto mt-3 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
           />
         </form>
@@ -128,6 +131,7 @@
       const add_form_btn = document.querySelector("#add_form_btn");
 
       add_form_btn.addEventListener("click", () => {
+        window.scrollTo(0, 0);
         add_form.classList.remove("scale-0");
       });
       ////////////////////////////////////////////////////////////////////////
