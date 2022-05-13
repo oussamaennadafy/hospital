@@ -57,18 +57,23 @@
         </div>
         <input
           type="button"
+          id="add_form_btn"
           value="add appointment"
           class="bg-sky-600 py-3 px-8 mb-14 mx-auto mt-9 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
         />
       </div>
       <div
-        class="w-6/12 min-h-[60rem] bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded pt-4"
+        id="add_form"
+        class="w-6/12 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded transition scale-0"
       >
-        <form class="flex flex-col justify-between gap-4">
+        <form class="flex flex-col justify-between gap-4 bg-gray-600 rounded">
           <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+            <h2 class="text-center font-semibold text-3xl text-gray-100 mt-6">
+              Add Appointment
+            </h2>
             <label class="text-lg text-white" for="topic">topic</label>
             <input
-              class="w-1/1 p-2 rounded"
+              class="w-1/1 p-2 rounded outline-none"
               type="text"
               name="topic"
               id="topic"
@@ -79,7 +84,7 @@
               >date_appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded"
+              class="w-1/1 p-2 rounded outline-none"
               type="date"
               name="date_appointment"
               id="date_appointment"
@@ -90,7 +95,7 @@
               >start appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded"
+              class="w-1/1 p-2 rounded outline-none"
               type="time"
               name="start_appointment"
               id="start_appointment"
@@ -101,13 +106,17 @@
               >end appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded"
+              class="w-1/1 p-2 rounded outline-none"
               type="time"
               name="end_appointment"
               id="end_appointment"
             />
           </div>
-          <button class="bg-white px-10 py-6 w-11 h-6">add appointment</button>
+          <input
+            type="button"
+            value="add appointment"
+            class="bg-sky-600 py-3 px-8 mb-4 mx-auto mt-3 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
+          />
         </form>
       </div>
     </main>

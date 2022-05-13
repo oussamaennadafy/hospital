@@ -130,3 +130,13 @@ login_submit.addEventListener("click", () => {
 sign_up_submit.addEventListener("click", () => {
   signUpUser();
 });
+
+/////////////////add form/////////////////////////////
+const add_form = document.querySelector("#add_form");
+const add_form_btn = document.querySelector("#add_form_btn");
+
+add_form_btn.addEventListener("click", (e) => {
+  preventDefault(e);
+  add_form.classList.remove("scale-0");
+  console.log("click");
+});
