@@ -56,8 +56,8 @@
           </div>
         </div>
         <input
-          type="button"
           id="add_form_btn"
+          type="button"
           value="add appointment"
           class="bg-sky-600 py-3 px-8 mb-14 mx-auto mt-9 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
         />
@@ -121,5 +121,15 @@
       </div>
     </main>
     <script src="booking.js"></script>
+    <script>
+      /////////////////add form/////////////////////////////
+      const add_form = document.querySelector("#add_form");
+      const add_form_btn = document.querySelector("#add_form_btn");
+
+      add_form_btn.addEventListener("click", () => {
+        add_form.classList.remove("scale-0");
+      });
+      ////////////////////////////////////////////////////////////////////////
+    </script>
   </body>
 </html>
