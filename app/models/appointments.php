@@ -33,11 +33,11 @@ return $this->result;
 // CREATE
 public function createAppointment(){
  // sanitize
- $this->topic=htmlspecialchars(strip_tags($this->topic));
- $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
- $this->start_appointment=htmlspecialchars(strip_tags($this->start_appointment));
- $this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
- $this->key_user=htmlspecialchars(strip_tags($this->key_user));
+ $this->topic=htmlspecialchars($this->topic);
+ $this->date_appointment=htmlspecialchars($this->date_appointment);
+ $this->start_appointment=htmlspecialchars($this->start_appointment);
+ $this->end_appointment=htmlspecialchars($this->end_appointment);
+ $this->key_user=htmlspecialchars($this->key_user);
  
 
   $sqlQuery = "INSERT INTO
