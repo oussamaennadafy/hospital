@@ -197,13 +197,19 @@
         data.append("end_appointment", end_appointment);
         data.append("key_user", sessionStorage.getItem("data"));
 
+        // console.log(topic);
+        // console.log(date_appointment);
+        // console.log(start_appointment);
+        // console.log(end_appointment);
+        // console.log(sessionStorage.getItem("data"));
+
         fetch("http://localhost/hospital/app/api/appointments/create.php", {
-          method: "POST",
+          method: "post",
           body: data,
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            console.log(data.json());
             // if (data == "error") {
             //   console.log("error in front end");
             // } else {
@@ -215,8 +221,8 @@
             //     "http://localhost/hospital/front-end/public/booking.html"
             //   );
             // }
-          })
-          .catch((err) => console.error(err));
+          });
+        // .catch((err) => console.error(err));
       }
 
       submit_appointment.addEventListener("click", () => {

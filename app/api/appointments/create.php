@@ -13,9 +13,9 @@ $database = new Database();
 $db = $database->getConnection();
 $appointment = new appointment($db);
 
-if(!empty($_GET['topic']) && !empty($_GET['date_appointment']) && !empty($_GET['start_appointment']) && !empty($_GET['end_appointment']) && $_GET['key_user']) {
- echo json_encode('passed');
-}
+// if(!empty($_GET['topic']) && !empty($_GET['date_appointment']) && !empty($_GET['start_appointment']) && !empty($_GET['end_appointment']) && $_GET['key_user']) {
+//  echo json_encode('passed');
+// }
 
   $appointment->topic = $_GET['topic'];
   $appointment->date_appointment = $_GET['date_appointment'];
