@@ -1,6 +1,6 @@
 ///////////////////  session user  //////////////////////
 const data = window.sessionStorage.getItem("data");
-////////////////////  elements  ///////////////////////////
+////////////////////  elements  /////////////////////////
 const log_out = document.querySelector("#log_out");
 const error = document.querySelector("#error");
 const table = document.querySelector(".table");
@@ -94,6 +94,7 @@ function readAppointments(key_special) {
                     data[3];
                   document.getElementById("end_appointment_edit").value =
                     data[4];
+                  var id_appointment_edit = data[0];
                 });
             }
             //////////////////////////////////////////////////////
@@ -157,7 +158,6 @@ log_out.addEventListener("click", () => {
   window.location.replace("http://localhost/hospital/front-end/public");
 });
 ///////////////////////////////////////////////////////////
-
 ///////////////////////display and hide add form/////////////////////////////
 const add_form = document.querySelector("#add_form");
 const add_form_btn = document.querySelector("#add_form_btn");
@@ -170,7 +170,7 @@ add_form_btn.addEventListener("click", () => {
 cancel_form_btn.addEventListener("click", () => {
   add_form.classList.add("scale-0");
 });
-///////////////////////////add appointment function/////////////////////
+///////////////////////////add appointment function////////////////////////
 function AddAppointment() {
   var topic_el = document.getElementById("topic");
   var date_appointment_el = document.getElementById("date_appointment");
@@ -240,4 +240,4 @@ function AddAppointment() {
 submit_appointment.addEventListener("click", () => {
   AddAppointment();
 });
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
