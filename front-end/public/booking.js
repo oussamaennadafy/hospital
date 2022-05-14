@@ -59,7 +59,10 @@ function readAppointments(key_special) {
             //////////////////////////////////////////////////////
             function show_singel_appointment() {
               /////////////edit form inputs/////////////////
-              const 
+              const edit_topic = document.querySelector("#edit_topic");
+              const edit_topic = document.querySelector("#edit_topic");
+              const edit_topic = document.querySelector("#edit_topic");
+              const edit_topic = document.querySelector("#edit_topic");
               //////////////////////////////////////////////
               let data_id_appointment = new FormData();
               data_id_appointment.append("id", data[i][0]);
