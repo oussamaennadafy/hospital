@@ -76,13 +76,11 @@ function readAppointments(key_special) {
                   method: "post",
                   body: dataToDelete,
                 }
-              )
-                .then((response) => response.json())
-                .then((data) => {
-                  window.location.replace(
-                    "http://localhost/hospital/front-end/public/booking.html"
-                  );
-                });
+              ).then((response) => {
+                window.location.replace(
+                  "http://localhost/hospital/front-end/public/booking.html"
+                );
+              });
             });
             ///////////////////////////////
             // Create a href attribute:

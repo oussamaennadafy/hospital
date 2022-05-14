@@ -13,7 +13,7 @@ $database = new Database();
 $db = $database->getConnection();
 $item = new appointment($db);
 
-$item->id = isset($_GET['id']) ? $_GET['id'] : die('enter id') ;
+$item->id = isset($_POST['id']) ? $_POST['id'] : die('enter id') ;
 
 $item->deleteAppointment();
 ?>
