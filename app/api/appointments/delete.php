@@ -13,7 +13,7 @@ $database = new Database();
 $db = $database->getConnection();
 $item = new appointment($db);
 
-$item->id = isset($_GET['id']) ? $_GET['id'] : die('please entre the id');
+$item->id;
 
 if($item->deleteAppointment()){
 echo json_encode("appointment deleted.");

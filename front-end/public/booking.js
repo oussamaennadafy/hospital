@@ -67,26 +67,16 @@ function readAppointments(key_special) {
             ///////////////////////////////
             deleteButton.addEventListener("click", () => {
               id = data[i][0];
-              let data = new FormData();
-              data.append("id", id);
+              let dataToDelete = new FormData();
+              dataToDelete.append("id", id);
 
-              fetch("http://localhost/hospital/app/api/users/create.php", {
+              fetch("http://localhost/hospital/app/api/users/delete.php", {
                 method: "post",
-                body: data,
+                body: dataToDelete,
               })
                 .then((response) => response.json())
                 .then((data) => {
-                  if (data == "error") {
-                    console.log("error in front end");
-                  } else {
-                    // console.log(data);
-                    newData = Object.values(data);
-                    // console.log(newData[0]);
-                    window.sessionStorage.setItem("data", newData[0]);
-                    window.location.replace(
-                      "http://localhost/hospital/front-end/public/booking.html"
-                    );
-                  }
+                  console.log(data);
                 })
                 .catch((err) => console.error(err));
             });
