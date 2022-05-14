@@ -24,6 +24,7 @@ function readAppointments(key_special) {
           /////////////////remove last item for each array data////////////////////
           for (let i = 0; i < data.length; i++) {
             data[i].pop();
+            // console.log(data[0][0]);
           }
           // Get a reference to the table
           let tableRef = document.getElementById("table");
@@ -39,7 +40,6 @@ function readAppointments(key_special) {
               let newText = document.createTextNode(data[i][j]);
               newCell.appendChild(newText);
             }
-            ///////////////////////////////
             //////////////////////////////
             // Insert a cell of edit button
             let newCellOne = newRow.insertCell(-1);
@@ -47,7 +47,7 @@ function readAppointments(key_special) {
             let editButton = document.createElement("button");
             editButton.innerText = "edit";
             newCellOne.appendChild(editButton);
-            ///////////////////////////////
+            //////////////////////////////
             // Create a href attribute:
             const att = document.createAttribute("class");
 
@@ -64,6 +64,32 @@ function readAppointments(key_special) {
             let deleteButton = document.createElement("button");
             deleteButton.innerText = "delete";
             newCellTwo.appendChild(deleteButton);
+            ///////////////////////////////
+            deleteButton.addEventListener("click", () => {
+              id = data[i][0];
+              let data = new FormData();
+              data.append("id", id);
+
+              fetch("http://localhost/hospital/app/api/users/create.php", {
+                method: "post",
+                body: data,
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data == "error") {
+                    console.log("error in front end");
+                  } else {
+                    // console.log(data);
+                    newData = Object.values(data);
+                    // console.log(newData[0]);
+                    window.sessionStorage.setItem("data", newData[0]);
+                    window.location.replace(
+                      "http://localhost/hospital/front-end/public/booking.html"
+                    );
+                  }
+                })
+                .catch((err) => console.error(err));
+            });
             ///////////////////////////////
             // Create a href attribute:
             const attTwo = document.createAttribute("class");
@@ -169,7 +195,8 @@ function AddAppointment() {
       .catch((err) => console.log(err));
   }
 }
-///////////////////////////add appointment function/////////////////////
+///////////////////////////call AddAppointment function/////////////////////
 submit_appointment.addEventListener("click", () => {
   AddAppointment();
 });
+/////////////////////////////////////////////////////////
