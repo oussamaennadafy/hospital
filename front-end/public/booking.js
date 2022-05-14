@@ -71,22 +71,29 @@ function readAppointments(key_special) {
               )
                 .then((response) => response.json())
                 .then((data) => {
-                  /////////////edit form inputs/////////////////
-                  // const edit_topic_el = document.getElementById("topic_edit");
-                  // const date_appointment_edit_el = document.getElementById(
-                  //   "date_appointment_edit"
-                  // );
-                  // const start_appointment_edit_el = document.getElementById(
-                  //   "start_appointment_edit"
-                  // );
-                  // const end_appointment_edit_el = document.getElementById(
-                  //   "end_appointment_edit"
-                  // );
-                  // const edit_topic = edit_topic_el.value;
-                  // const date_appointment_edit = date_appointment_edit_el.value;
-                  // const start_appointment_edit = start_appointment_edit_el.value;
-                  // const end_appointment_edit = end_appointment_edit_el.value;
-                  //////////////////////////////////////////////
+                  ///////////edit form inputs/////////////////
+                  const edit_topic_el = document.getElementById("topic_edit");
+                  const date_appointment_edit_el = document.getElementById(
+                    "date_appointment_edit"
+                  );
+                  const start_appointment_edit_el = document.getElementById(
+                    "start_appointment_edit"
+                  );
+                  const end_appointment_edit_el = document.getElementById(
+                    "end_appointment_edit"
+                  );
+                  //////btn edit//////////
+                  const edit_appointment_btn = document.getElementById(
+                    "edit_appointment_btn"
+                  );
+                  const edit_error = document.querySelector(".edit_error");
+                  ///////////values///////
+                  const edit_topic = edit_topic_el.value;
+                  const date_appointment_edit = date_appointment_edit_el.value;
+                  const start_appointment_edit =
+                    start_appointment_edit_el.value;
+                  const end_appointment_edit = end_appointment_edit_el.value;
+                  ////////////////////////////////////////////
                   document.getElementById("topic_edit").value = data[1];
                   document.getElementById("date_appointment_edit").value =
                     data[2];
@@ -95,6 +102,7 @@ function readAppointments(key_special) {
                   document.getElementById("end_appointment_edit").value =
                     data[4];
                   var id_appointment_edit = data[0];
+                  edit_appointment_btn.addEventListener("click", () => {});
                 });
             }
             //////////////////////////////////////////////////////
@@ -172,10 +180,10 @@ cancel_form_btn.addEventListener("click", () => {
 });
 ///////////////////////////add appointment function////////////////////////
 function AddAppointment() {
-  var topic_el = document.getElementById("topic");
-  var date_appointment_el = document.getElementById("date_appointment");
-  var start_appointment_el = document.getElementById("start_appointment");
-  var end_appointment_el = document.getElementById("end_appointment");
+  const topic_el = document.getElementById("topic");
+  const date_appointment_el = document.getElementById("date_appointment");
+  const start_appointment_el = document.getElementById("start_appointment");
+  const end_appointment_el = document.getElementById("end_appointment");
 
   var topic = topic_el.value;
   var date_appointment = date_appointment_el.value;
