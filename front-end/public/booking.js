@@ -70,15 +70,19 @@ function readAppointments(key_special) {
               let dataToDelete = new FormData();
               dataToDelete.append("id", id);
 
-              fetch("http://localhost/hospital/app/api/users/delete.php", {
-                method: "post",
-                body: dataToDelete,
-              })
+              fetch(
+                "http://localhost/hospital/app/api/appointments/delete.php",
+                {
+                  method: "post",
+                  body: dataToDelete,
+                }
+              )
                 .then((response) => response.json())
                 .then((data) => {
-                  console.log(data);
-                })
-                .catch((err) => console.error(err));
+                  window.location.replace(
+                    "http://localhost/hospital/front-end/public/booking.html"
+                  );
+                });
             });
             ///////////////////////////////
             // Create a href attribute:
