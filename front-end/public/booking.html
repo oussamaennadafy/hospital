@@ -159,11 +159,6 @@
         var start_appointment = start_appointment_el.value;
         var end_appointment = end_appointment_el.value;
 
-        console.log(topic);
-        console.log(date_appointment);
-        console.log(start_appointment);
-        console.log(end_appointment);
-
         var error = document.querySelector(".error");
 
         if (topic == null || topic == "") {
@@ -200,9 +195,10 @@
         data.append("date_appointment", date_appointment);
         data.append("start_appointment", start_appointment);
         data.append("end_appointment", end_appointment);
+        data.append("key_user", sessionStorage.getItem("data"));
 
         fetch("http://localhost/hospital/app/api/appointments/create.php", {
-          method: "post",
+          method: "POST",
           body: data,
         })
           .then((response) => response.json())

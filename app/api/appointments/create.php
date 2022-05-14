@@ -13,15 +13,14 @@ $database = new Database();
 $db = $database->getConnection();
 $appointment = new appointment($db);
 
+if(!empty())
 
- if(!empty($_GET['topic']) && !empty($_GET['date_appointment']) && !empty($_GET['start_appointment']) && !empty($_GET['end_appointment']) && !empty($_GET['key_user']))
- {
-  $appointment->topic = $_GET['topic'];
-  $appointment->date_appointment = $_GET['date_appointment'];
-  $appointment->start_appointment = $_GET['start_appointment'];
-  $appointment->end_appointment = $_GET['end_appointment'];
-  $appointment->end_appointment = $_GET['key_user'];
- } 
+  $appointment->topic = $_POST['topic'];
+  $appointment->date_appointment = $_POST['date_appointment'];
+  $appointment->start_appointment = $_POST['start_appointment'];
+  $appointment->end_appointment = $_POST['end_appointment'];
+  $appointment->end_appointment = $_POST['key_user'];
+
 
 if($appointment->createAppointment()){
 // create array
