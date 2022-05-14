@@ -90,3 +90,86 @@ log_out.addEventListener("click", () => {
   window.location.replace("http://localhost/hospital/front-end/public");
 });
 ///////////////////////////////////////////////////////////
+
+///////////////////////display and hide add form/////////////////////////////
+const add_form = document.querySelector("#add_form");
+const add_form_btn = document.querySelector("#add_form_btn");
+const cancel_form_btn = document.querySelector("#cancel_form_btn");
+
+add_form_btn.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+  add_form.classList.remove("scale-0");
+});
+cancel_form_btn.addEventListener("click", () => {
+  add_form.classList.add("scale-0");
+});
+///////////////////////////add appointment function/////////////////////
+function AddAppointment() {
+  var topic_el = document.getElementById("topic");
+  var date_appointment_el = document.getElementById("date_appointment");
+  var start_appointment_el = document.getElementById("start_appointment");
+  var end_appointment_el = document.getElementById("end_appointment");
+
+  var topic = topic_el.value;
+  var date_appointment = date_appointment_el.value;
+  var start_appointment = start_appointment_el.value;
+  var end_appointment = end_appointment_el.value;
+
+  var error = document.querySelector(".error");
+
+  if (topic == null || topic == "") {
+    topic_el.classList.add("outline-red-500");
+    error.innerHTML = "please fill all inputs";
+  } else {
+    topic_el.classList.remove("outline-red-500");
+    error.innerHTML = "";
+  }
+  //////////////////////////////////////////
+  if (date_appointment == null || date_appointment == "") {
+    date_appointment_el.classList.add("outline-red-500");
+    error.innerHTML = "please fill all inputs";
+  } else {
+    date_appointment_el.classList.remove("outline-red-500");
+  }
+  //////////////////////////////////////////
+  if (start_appointment == null || start_appointment == "") {
+    start_appointment_el.classList.add("outline-red-500");
+    error.innerHTML = "please fill all inputs";
+  } else {
+    start_appointment_el.classList.remove("outline-red-500");
+  }
+  //////////////////////////////////////////
+  if (end_appointment == null || end_appointment == "") {
+    end_appointment_el.classList.add("outline-red-500");
+    error.innerHTML = "please fill all inputs";
+  } else {
+    end_appointment_el.classList.remove("outline-red-500");
+  }
+
+  if (error.innerHTML != "please fill all inputs") {
+    let data = new FormData();
+    data.append("topic", topic);
+    data.append("date_appointment", date_appointment);
+    data.append("start_appointment", start_appointment);
+    data.append("end_appointment", end_appointment);
+    data.append("key_user", sessionStorage.getItem("data"));
+
+    fetch("http://localhost/hospital/app/api/appointments/create.php", {
+      method: "post",
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data == true) {
+          window.location.replace(
+            "http://localhost/hospital/front-end/public/booking.html"
+          );
+        }
+      })
+      .catch((err) => console.log(err));
+  }
+}
+///////////////////////////add appointment function/////////////////////
+submit_appointment.addEventListener("click", () => {
+  AddAppointment();
+});

@@ -13,30 +13,30 @@ $database = new Database();
 $db = $database->getConnection();
 $appointment = new appointment($db);
 
-// if(!empty($_GET['topic']) && !empty($_GET['date_appointment']) && !empty($_GET['start_appointment']) && !empty($_GET['end_appointment']) && $_GET['key_user']) {
-//  echo json_encode('passed');
+
+
+ //fill appointment object
+ $appointment->topic = $_POST['topic'];
+ $appointment->date_appointment = $_POST['date_appointment'];
+ $appointment->start_appointment = $_POST['start_appointment'];
+ $appointment->end_appointment = $_POST['end_appointment'];
+ $appointment->key_user = $_POST['key_user'];
+ //craeteAppintment
+ echo json_encode($appointment->createAppointment());
+
+
+
+
+
+
+// if($appointment->createAppointment()){
+// // create array
+// $appointment_arr = array(
+//  "topic" => $appointment->topic,
+//  "date_appointment" => $appointment->date_appointment,
+//  "start_appointment" => $appointment->start_appointment,
+//  "end_appointment" => $appointment->end_appointment,
+//  "key_user" => $appointment->key_user
+//  );
 // }
-
-  $appointment->topic = $_GET['topic'];
-  $appointment->date_appointment = $_GET['date_appointment'];
-  $appointment->start_appointment = $_GET['start_appointment'];
-  $appointment->end_appointment = $_GET['end_appointment'];
-  $appointment->key_user = $_GET['key_user'];
-
-
-
-
-if($appointment->createAppointment()){
-// create array
-$appointment_arr = array(
- "topic" => $appointment->topic,
- "date_appointment" => $appointment->date_appointment,
- "start_appointment" => $appointment->start_appointment,
- "end_appointment" => $appointment->end_appointment,
- "key_user" => $appointment->key_user
- );
- echo json_encode($appointment_arr);
-} else{
- echo json_encode('error');
-}
 ?>
