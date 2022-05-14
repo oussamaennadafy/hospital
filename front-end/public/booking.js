@@ -58,12 +58,14 @@ function readAppointments(key_special) {
             });
             //////////////////////////////////////////////////////
             function show_singel_appointment() {
-              console.log("show");
+              /////////////edit form inputs/////////////////
+              const 
+              //////////////////////////////////////////////
               let data_id_appointment = new FormData();
               data_id_appointment.append("id", data[i][0]);
 
               fetch(
-                "http://localhost/hospital/app/appointments/single_read_by_id.php",
+                "http://localhost/hospital/app/api/appointments/single_read_by_id.php",
                 {
                   method: "post",
                   body: data_id_appointment,

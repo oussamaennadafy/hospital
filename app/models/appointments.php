@@ -83,7 +83,7 @@ $this->data=$record->fetch_all();
 // read One
 public function getSingleAppointmentById(){
 
-$sqlQuery = "SELECT * FROM
+$sqlQuery = "SELECT `id`, `topic`, `date_appointment`, `start_appointment`, `end_appointment` FROM
 ". $this->db_table ." WHERE id = ".$this->id;
 
 $record = $this->db->query($sqlQuery);
