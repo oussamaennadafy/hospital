@@ -49,7 +49,7 @@ function readAppointments(key_special) {
             newCellOne.appendChild(editButton);
             //////////////show and hide edit form////////////////
             editButton.addEventListener("click", () => {
-              show_singel_appointment(data[i][0]);
+              show_singel_appointment();
               window.scrollTo(0, 0);
               edit_form.classList.remove("scale-0");
             });
@@ -57,21 +57,8 @@ function readAppointments(key_special) {
               edit_form.classList.add("scale-0");
             });
             //////////////////////////////////////////////////////
-            function show_singel_appointment(id) {
-              let id_of_edited_aoppintment = new FormData();
-              id_of_edited_aoppintment.append("id", id);
-
-              fetch(
-                "http://localhost/hospital/app/api/appointments/single_read.php",
-                {
-                  method: "post",
-                  body: id_of_edited_aoppintment,
-                }
-              )
-                .then((response) => response.json())
-                .then((date) => {
-                  console.log(data);
-                });
+            function show_singel_appointment() {
+              console.log("show");
             }
             //////////////////////////////////////////////////////
             // Create a href attribute:
@@ -123,7 +110,8 @@ function readAppointments(key_special) {
         }
         add_Data_To_Table();
       }
-    });
+    })
+    .catch((err) => console.error(err));
 }
 
 readAppointments(data);
