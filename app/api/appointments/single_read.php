@@ -13,19 +13,9 @@ $database = new Database();
 $db = $database->getConnection();
 
 $appointment = new appointment($db);
-$appointment->id = isset($_POST['id']) ? $_POST['id'] : die(json_encode('id_empty'));
+$appointment->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode('id_empty'));
 
-$appointment->getSingleAppointment();
+$appointment = $appointment->getSingleAppointment();
 
-if($db->affected_rows > 0){
-
-// create array
-// print_r($appointment->arrAppointments);
-
-// http_response_code(200);
-echo json_encode($appointment->data);
-} else{
-// http_response_code(404);
-echo json_encode("not found");
-}
+print_r($appointment);
 ?>
