@@ -123,8 +123,7 @@ function readAppointments(key_special) {
         }
         add_Data_To_Table();
       }
-    })
-    .catch((err) => console.error(err));
+    });
 }
 
 readAppointments(data);
