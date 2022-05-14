@@ -61,7 +61,6 @@ function readAppointments(key_special) {
               //////////////////////////////////////////////
               let data_id_appointment = new FormData();
               data_id_appointment.append("id", data[i][0]);
-
               fetch(
                 "http://localhost/hospital/app/api/appointments/single_read_by_id.php",
                 {
@@ -87,12 +86,6 @@ function readAppointments(key_special) {
                     "edit_appointment_btn"
                   );
                   const edit_error = document.querySelector(".edit_error");
-                  ///////////values///////
-                  const edit_topic = edit_topic_el.value;
-                  const date_appointment_edit = date_appointment_edit_el.value;
-                  const start_appointment_edit =
-                    start_appointment_edit_el.value;
-                  const end_appointment_edit = end_appointment_edit_el.value;
                   ////////////////////////////////////////////
                   document.getElementById("topic_edit").value = data[1];
                   document.getElementById("date_appointment_edit").value =
@@ -102,7 +95,88 @@ function readAppointments(key_special) {
                   document.getElementById("end_appointment_edit").value =
                     data[4];
                   var id_appointment_edit = data[0];
-                  edit_appointment_btn.addEventListener("click", () => {});
+                  edit_appointment_btn.addEventListener("click", () => {
+                    ///////////////validation////////////////////
+                    if (
+                      edit_topic_el.value == null ||
+                      edit_topic_el.value == ""
+                    ) {
+                      edit_topic_el.classList.add("outline-red-500");
+                      edit_error.innerHTML = "please fill all inputs";
+                    } else {
+                      edit_topic_el.classList.remove("outline-red-500");
+                      edit_error.innerHTML = "";
+                    }
+                    //////////////////////////////////////////
+                    if (
+                      date_appointment_edit_el.value == null ||
+                      date_appointment_edit_el.value == ""
+                    ) {
+                      date_appointment_edit_el.classList.add("outline-red-500");
+                      edit_error.innerHTML = "please fill all inputs";
+                    } else {
+                      date_appointment_edit_el.classList.remove(
+                        "outline-red-500"
+                      );
+                    }
+                    //////////////////////////////////////////
+                    if (
+                      start_appointment_edit_el.value == null ||
+                      start_appointment_edit_el.value == ""
+                    ) {
+                      start_appointment_edit_el.classList.add(
+                        "outline-red-500"
+                      );
+                      edit_error.innerHTML = "please fill all inputs";
+                    } else {
+                      start_appointment_edit_el.classList.remove(
+                        "outline-red-500"
+                      );
+                    }
+                    //////////////////////////////////////////
+                    if (
+                      end_appointment_edit_el.value == null ||
+                      end_appointment_edit_el.value == ""
+                    ) {
+                      end_appointment_edit_el.classList.add("outline-red-500");
+                      edit_error.innerHTML = "please fill all inputs";
+                    } else {
+                      end_appointment_edit_el.classList.remove(
+                        "outline-red-500"
+                      );
+                    }
+                    /////////////////////////////////////////////
+                    if (edit_error.innerHTML != "please fill all inputs") {
+                      let data_to_update = new FormData();
+                      data_to_update.append("id", id_appointment_edit);
+                      data_to_update.append("topic", edit_topic_el.value);
+                      data_to_update.append(
+                        "date_appointment",
+                        date_appointment_edit_el.value
+                      );
+                      data_to_update.append(
+                        "start_appointment",
+                        start_appointment_edit_el.value
+                      );
+                      data_to_update.append(
+                        "end_appointment",
+                        end_appointment_edit_el.value
+                      );
+
+                      fetch(
+                        "http://localhost/hospital/app/api/appointments/update.php",
+                        {
+                          method: "post",
+                          body: data_to_update,
+                        }
+                      )
+                        .then((response) => response.json())
+                        .then((data) => {
+                          window.location.reload();
+                        })
+                        .catch((err) => console.log(err));
+                    }
+                  });
                 });
             }
             //////////////////////////////////////////////////////
@@ -135,9 +209,7 @@ function readAppointments(key_special) {
                   body: dataToDelete,
                 }
               ).then((response) => {
-                window.location.replace(
-                  "http://localhost/hospital/front-end/public/booking.html"
-                );
+                window.location.reload();
               });
             });
             ///////////////////////////////
@@ -236,9 +308,7 @@ function AddAppointment() {
       .then((response) => response.json())
       .then((data) => {
         if (data == true) {
-          window.location.replace(
-            "http://localhost/hospital/front-end/public/booking.html"
-          );
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err));

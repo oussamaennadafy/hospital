@@ -105,7 +105,7 @@ $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
 $this->start_appointment=htmlspecialchars(strip_tags($this->start_appointment));
 $this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
 
-if(!empty($this->topic) && !empty($this->date_appointment) && !empty($this->start_appointment) && !empty($this->end_appointment) && !empty($this->key_user)) {
+// if(!empty($this->topic) && !empty($this->date_appointment) && !empty($this->start_appointment) && !empty($this->end_appointment) && !empty($this->key_user)) {
 
 
  $sqlQuery = "UPDATE ". $this->db_table ." SET
@@ -117,7 +117,7 @@ if(!empty($this->topic) && !empty($this->date_appointment) && !empty($this->star
  
  $this->db->query($sqlQuery);
 
-}
+// }
 
 
 if($this->db->affected_rows > 0){
