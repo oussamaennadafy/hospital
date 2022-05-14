@@ -59,6 +59,20 @@ function readAppointments(key_special) {
             //////////////////////////////////////////////////////
             function show_singel_appointment() {
               console.log("show");
+              let data_id_appointment = new FormData();
+              data_id_appointment.append("id", data[i][0]);
+
+              fetch(
+                "http://localhost/hospital/app/appointments/single_read_by_id.php",
+                {
+                  method: "post",
+                  body: data_id_appointment,
+                }
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log(data);
+                });
             }
             //////////////////////////////////////////////////////
             // Create a href attribute:

@@ -80,6 +80,23 @@ $this->data=$record->fetch_all();
 //  }
 }
 
+// read One
+public function getSingleAppointmentById(){
+
+$sqlQuery = "SELECT * FROM
+". $this->db_table ." WHERE id = ".$this->id;
+
+$record = $this->db->query($sqlQuery);
+$this->data=$record->fetch_all();
+
+
+if($this->db->affected_rows > 0){
+
+ return $this->data[0];
+
+ }
+}
+
 // UPDATE
 public function updateAppointment(){
 
