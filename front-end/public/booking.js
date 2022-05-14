@@ -58,11 +58,6 @@ function readAppointments(key_special) {
             });
             //////////////////////////////////////////////////////
             function show_singel_appointment() {
-              /////////////edit form inputs/////////////////
-              const edit_topic = document.querySelector("#edit_topic");
-              const edit_topic = document.querySelector("#edit_topic");
-              const edit_topic = document.querySelector("#edit_topic");
-              const edit_topic = document.querySelector("#edit_topic");
               //////////////////////////////////////////////
               let data_id_appointment = new FormData();
               data_id_appointment.append("id", data[i][0]);
@@ -76,7 +71,29 @@ function readAppointments(key_special) {
               )
                 .then((response) => response.json())
                 .then((data) => {
-                  console.log(data);
+                  /////////////edit form inputs/////////////////
+                  // const edit_topic_el = document.getElementById("topic_edit");
+                  // const date_appointment_edit_el = document.getElementById(
+                  //   "date_appointment_edit"
+                  // );
+                  // const start_appointment_edit_el = document.getElementById(
+                  //   "start_appointment_edit"
+                  // );
+                  // const end_appointment_edit_el = document.getElementById(
+                  //   "end_appointment_edit"
+                  // );
+                  // const edit_topic = edit_topic_el.value;
+                  // const date_appointment_edit = date_appointment_edit_el.value;
+                  // const start_appointment_edit = start_appointment_edit_el.value;
+                  // const end_appointment_edit = end_appointment_edit_el.value;
+                  //////////////////////////////////////////////
+                  document.getElementById("topic_edit").value = data[1];
+                  document.getElementById("date_appointment_edit").value =
+                    data[2];
+                  document.getElementById("start_appointment_edit").value =
+                    data[3];
+                  document.getElementById("end_appointment_edit").value =
+                    data[4];
                 });
             }
             //////////////////////////////////////////////////////
