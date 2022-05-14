@@ -63,21 +63,21 @@ public function createAppointment(){
 public function getSingleAppointment(){
 
 $sqlQuery = "SELECT * FROM
-". $this->db_table ." WHERE key_user = ".$this->key_user;
+". $this->db_table ." WHERE id = ".$this->id;
 
 $record = $this->db->query($sqlQuery);
-$this->data=$record->fetch_all();
+$this->data=$record->fetch();
 
 
-// if($this->db->affected_rows > 0){
+if($this->db->affected_rows > 0){
 
-//   $this->topic = $dataRow['topic'];
-//   $this->date_appointment = $dataRow['date_appointment'];
-//   $this->start_appointment = $dataRow['start_appointment'];
-//   $this->end_appointment = $dataRow['end_appointment'];
-//   $this->key_user = $dataRow['key_user'];
+  $this->topic = $dataRow['topic'];
+  $this->date_appointment = $dataRow['date_appointment'];
+  $this->start_appointment = $dataRow['start_appointment'];
+  $this->end_appointment = $dataRow['end_appointment'];
+  $this->key_user = $dataRow['key_user'];
 
-//  }
+ }
 }
 
 // UPDATE

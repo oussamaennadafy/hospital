@@ -61,7 +61,17 @@ function readAppointments(key_special) {
               let id_of_edited_aoppintment = new FormData();
               id_of_edited_aoppintment.append("id", id);
 
-              fetch("http://localhost/hospital/");
+              fetch(
+                "http://localhost/hospital/app/api/appointments/single_read.php",
+                {
+                  method: "post",
+                  body: id_of_edited_aoppintment,
+                }
+              )
+                .then((response) => response.json())
+                .then((date) => {
+                  console.log(data);
+                });
             }
             //////////////////////////////////////////////////////
             // Create a href attribute:

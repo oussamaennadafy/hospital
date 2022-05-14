@@ -13,7 +13,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 $appointment = new appointment($db);
-$appointment->key_user = isset($_POST['key_user']) ? $_POST['key_user'] : die(json_encode('key_user_empty'));
+$appointment->id = isset($_POST['id']) ? $_POST['id'] : die(json_encode('id_empty'));
 
 $appointment->getSingleAppointment();
 
