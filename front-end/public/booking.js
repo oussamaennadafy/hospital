@@ -47,7 +47,23 @@ function readAppointments(key_special) {
             let editButton = document.createElement("button");
             editButton.innerText = "edit";
             newCellOne.appendChild(editButton);
-            //////////////////////////////
+            //////////////show and hide edit form////////////////
+            editButton.addEventListener("click", () => {
+              show_singel_appointment(data[i][0]);
+              window.scrollTo(0, 0);
+              edit_form.classList.remove("scale-0");
+            });
+            cancel_edit_form_btn.addEventListener("click", () => {
+              edit_form.classList.add("scale-0");
+            });
+            //////////////////////////////////////////////////////
+            function show_singel_appointment(id) {
+              let id_of_edited_aoppintment = new FormData();
+              id_of_edited_aoppintment.append("id", id);
+
+              fetch("http://localhost/hospital/");
+            }
+            //////////////////////////////////////////////////////
             // Create a href attribute:
             const att = document.createAttribute("class");
 
