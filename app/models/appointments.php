@@ -38,24 +38,27 @@ public function createAppointment(){
  $this->start_appointment=htmlspecialchars($this->start_appointment);
  $this->end_appointment=htmlspecialchars($this->end_appointment);
  $this->key_user=htmlspecialchars($this->key_user);
- 
 
-  $sqlQuery = "INSERT INTO
-  ". $this->db_table ." SET 
-  topic = '".$this->topic."',
-  date_appointment = '".$this->date_appointment."',
-  start_appointment = '".$this->start_appointment."',
-  end_appointment = '".$this->end_appointment."',
-  key_user = '".$this->key_user."'"
-  ;
-  
-  $this->db->query($sqlQuery);
+ $sqlQuery = "SELECT `id` FROM `appointment` WHERE `date_appointment` = ".$this->date_appointment." AND `start_appointment` = ".$this->start_appointment." AND `end_appointment` = ".$this->end_appointment;
+ $record = $this->db->query($sqlQuery);
+ $this->data=$record->fetch_all();
 
- 
  if($this->db->affected_rows > 0){
- return true;
- }
- return false;
+  return false;
+  } else {
+
+   $sqlQuery = "INSERT INTO
+   ". $this->db_table ." SET 
+   topic = '".$this->topic."',
+   date_appointment = '".$this->date_appointment."',
+   start_appointment = '".$this->start_appointment."',
+   end_appointment = '".$this->end_appointment."',
+   key_user = '".$this->key_user."'"
+   ;
+   $this->db->query($sqlQuery);
+   return true;
+  }
+  
  }
 
 
@@ -67,7 +70,15 @@ $sqlQuery = "SELECT * FROM
 
 $record = $this->db->query($sqlQuery);
 $this->data=$record->fetch_all();
+}
 
+// read One
+public function AppointmentExist(){
+
+$sqlQuery = "SELECT `id` FROM". $this->db_table ." WHERE date_appointment = ".$this->date_appointment ."And start_appointment = " .$this->start_appointment;
+
+$record = $this->db->query($sqlQuery);
+$this->data=$record->fetch_all();
 
  if($this->db->affected_rows > 0){
   return true;
