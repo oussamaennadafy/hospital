@@ -543,6 +543,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1rem;
 }
 
+.mb-8{
+  margin-bottom: 2rem;
+}
+
 .block{
   display: block;
 }
@@ -611,6 +615,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-1\/2{
   width: 50%;
+}
+
+.w-11\/12{
+  width: 91.666667%;
 }
 
 .min-w-full{
@@ -1019,9 +1027,22 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 83.333333%;
   }
 
+  .sm\:w-8\/12{
+    width: 66.666667%;
+  }
+
+  .sm\:w-9\/12{
+    width: 75%;
+  }
+
   .sm\:px-6{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:py-3{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .sm\:text-base{
@@ -1053,6 +1074,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 768px){
   .md\:w-8\/12{
     width: 66.666667%;
+  }
+
+  .md\:w-6\/12{
+    width: 50%;
+  }
+
+  .md\:w-7\/12{
+    width: 58.333333%;
   }
 
   .md\:text-base{

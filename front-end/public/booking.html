@@ -1,3 +1,10 @@
+<script>
+  if (window.sessionStorage.getItem("data") == null) {
+    window.location.replace(
+      "http://localhost/hospital/front-end/public/index.html"
+    );
+  }
+</script>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -94,48 +101,48 @@
       </div>
       <div
         id="add_form"
-        class="w-full text-sm bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
+        class="w-11/12 sm:w-9/12 md:w-7/12 lg:w-5/12 text-sm bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
       >
         <form class="flex flex-col justify-between gap-4 bg-gray-600 rounded">
-          <div class="flex justify-between mx-auto flex-col gap-4">
-            <h2 class="text-center font-semibold text-3xl text-gray-100 mt-6">
-              Add Appointment
-            </h2>
+          <h2 class="text-center font-semibold text-3xl text-gray-100 mt-6">
+            Add Appointment
+          </h2>
+          <div class="w-full px-6 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="topic">topic</label>
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="text"
               id="topic"
             />
           </div>
-          <div class="flex justify-between mx-auto flex-col gap-4">
+          <div class="w-full px-6 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="date_appointment"
               >date appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="date"
               name="date_appointment"
               id="date_appointment"
             />
           </div>
-          <div class="flex justify-between mx-auto flex-col gap-4">
+          <div class="w-full px-6 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="start_appointment"
               >start appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="time"
               name="start_appointment"
               id="start_appointment"
             />
           </div>
-          <div class="flex justify-between mx-auto flex-col gap-4">
+          <div class="w-full px-6 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="end_appointment"
               >end appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="time"
               name="end_appointment"
               id="end_appointment"
@@ -146,13 +153,13 @@
                 type="button"
                 value="submit appointment"
                 id="submit_appointment"
-                class="bg-gradient-to-r from-cyan-500 to-blue-500 py-3 px-8 mb-14 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
+                class="bg-gradient-to-r from-cyan-500 to-blue-500 py-2 px-4 sm:px-6 sm:py-3 mb-8 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
               />
               <input
                 id="cancel_form_btn"
                 type="button"
                 value="Cancel"
-                class="bg-gradient-to-r from-yellow-500 to-orange-500 py-3 px-8 mb-14 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
+                class="bg-gradient-to-r from-yellow-500 to-orange-500 py-2 px-4 sm:px-6 sm:py-3 mb-8 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
               />
             </div>
           </div>
@@ -160,48 +167,50 @@
       </div>
       <div
         id="edit_form"
-        class="w-6/12 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
+        class="w-11/12 sm:w-9/12 md:w-7/12 lg:w-5/12 text-sm bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
       >
         <form class="flex flex-col justify-between gap-4 bg-gray-600 rounded">
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
-            <h2 class="text-center font-semibold text-3xl text-gray-100 mt-6">
-              edit Appointment
-            </h2>
+          <h2
+            class="text-center font-semibold text-xl sm:text-2xl md:text-3xl text-gray-100 mt-6"
+          >
+            edit Appointment
+          </h2>
+          <div class="w-full px-4 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="topic_edit">topic</label>
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="text"
               id="topic_edit"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="w-full px-4 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="date_appointment_edit"
               >date appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="date"
               name="date_appointment_edit"
               id="date_appointment_edit"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="w-full px-4 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="start_appointment_edit"
               >start appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="time"
               name="start_appointment_edit"
               id="start_appointment_edit"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="w-full px-4 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="end_appointment_edit"
               >end appointment</label
             >
             <input
-              class="w-1/1 p-2 rounded outline-none"
+              class="w-1/1 p-2 rounded outline-none md:text-lg"
               type="time"
               name="end_appointment_edit"
               id="end_appointment_edit"
@@ -214,13 +223,13 @@
                 type="button"
                 value="edit appointment"
                 id="edit_appointment_btn"
-                class="bg-gradient-to-r from-cyan-500 to-blue-500 py-3 px-8 mb-14 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
+                class="bg-gradient-to-r from-cyan-500 to-blue-500 py-3 px-8 mb-8 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
               />
               <input
                 id="cancel_edit_form_btn"
                 type="button"
                 value="Cancel"
-                class="bg-gradient-to-r from-yellow-500 to-orange-500 py-3 px-8 mb-14 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
+                class="bg-gradient-to-r from-yellow-500 to-orange-500 py-3 px-8 mb-8 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
               />
             </div>
           </div>
