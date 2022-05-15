@@ -1,12 +1,11 @@
 ///////////////////  session user  //////////////////////
 const data = window.sessionStorage.getItem("data");
-const dataCopy = window.sessionStorage.setItem("dataCopy", data);
+const dataCopy = window.sessionStorage.getItem("dataCopy");
 ////////////////////show user his pin///////////////////
 document.getElementById("pin_user").innerHTML = dataCopy;
-console.log(data);
+console.log(dataCopy);
 if (dataCopy == null) {
-  pin_user_card.classList.add("opacity-0");
-  pin_user_card.classList.add("pointer-events-none");
+  pin_user_card.classList.add("hidden");
 }
 ////////////////////////////////////////////////////////
 ////////////////////  elements  /////////////////////////
@@ -27,8 +26,9 @@ function readAppointments(key_special) {
     .then((data) => {
       if (data == "not found") {
         error.innerHTML = "you don't have appointments";
-        cnt.style.display = "none";
       } else {
+        error.innerHTML = "";
+        cnt.classList.remove("hidden");
         function add_Data_To_Table() {
           /////////////////remove last item for each array data////////////////////
           for (let i = 0; i < data.length; i++) {

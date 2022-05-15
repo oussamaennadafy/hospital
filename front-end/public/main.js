@@ -83,6 +83,7 @@ function signUpUser() {
         newData = Object.values(data);
         // console.log(newData[0]);
         window.sessionStorage.setItem("data", newData[0]);
+        window.sessionStorage.setItem("dataCopy", newData[0]);
         window.location.replace(
           "http://localhost/hospital/front-end/public/booking.html"
         );

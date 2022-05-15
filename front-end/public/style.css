@@ -474,6 +474,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   pointer-events: none;
 }
 
+.invisible{
+  visibility: hidden;
+}
+
 .absolute{
   position: absolute;
 }
@@ -589,6 +593,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: table;
 }
 
+.hidden{
+  display: none;
+}
+
 .h-\[82px\]{
   height: 82px;
 }
@@ -607,6 +615,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-5{
   height: 1.25rem;
+}
+
+.h-0{
+  height: 0px;
 }
 
 .min-h-full{
