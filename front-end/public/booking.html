@@ -20,7 +20,7 @@
   </head>
   <body class="overflow-x-hidden">
     <header
-      class="z-10 w-full h-[82px] bg-gradient-to-r from-sky-500 to-indigo-700 text-gray-300 flex items-center justify-between px-6 mb-20"
+      class="z-10 w-full h-[82px] bg-gradient-to-r from-cyan-500 to-blue-500 text-gray-300 flex items-center justify-between px-6 mb-20"
     >
       <a
         href="http://localhost/hospital/front-end/public/booking.html"
@@ -37,9 +37,9 @@
     </header>
     <main class="bg-gradient-to-r from-grey-500 to-grey-300">
       <div
-        class="bg-green-400 p-10 w-fit py-4 text-white text-center mx-auto rounded text-lg font-semibold tracking-widest mb-10"
+        class="bg-gradient-to-r from-cyan-500 to-blue-500 p-10 w-fit py-4 text-white text-center mx-auto rounded text-lg font-semibold tracking-widest mb-10 transition"
       >
-        Your Pin Authentication : 098765
+        Your Pin Authentication : <span id="">123456</span>
       </div>
       <div class="text-center text-4xl font-semibold" id="error"></div>
       <div class="flex flex-col w-10/12 mx-auto mb-9">
@@ -66,8 +66,8 @@
         <input
           id="add_form_btn"
           type="button"
-          value="add appointment"
-          class="bg-sky-600 py-3 px-8 mb-14 mx-auto mt-9 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
+          value="Add Appointment   +"
+          class="bg-gradient-to-r from-cyan-500 to-blue-500 py-3 pl-8 pr-6 mb-14 mx-auto mt-9 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
         />
       </div>
       <div
@@ -124,13 +124,13 @@
                 type="button"
                 value="submit appointment"
                 id="submit_appointment"
-                class="bg-sky-600 py-3 px-8 mb-8 mx-auto mt-2 block cursor-pointer rounded hover:bg-sky-700 transition-all duration-100"
+                class="bg-gradient-to-r from-cyan-500 to-blue-500 py-3 px-8 mb-14 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
               />
               <input
                 id="cancel_form_btn"
                 type="button"
                 value="Cancel"
-                class="bg-yellow-600 py-3 px-8 mb-8 mx-auto mt-2 block cursor-pointer rounded hover:bg-yellow-700 transition-all duration-100"
+                class="bg-gradient-to-r from-yellow-500 to-orange-500 py-3 px-8 mb-14 block cursor-pointer rounded text-white text-lg tracking-wider transition-all duration-100"
               />
             </div>
           </div>
