@@ -1,8 +1,13 @@
 ///////////////////  session user  //////////////////////
 const data = window.sessionStorage.getItem("data");
+const dataCopy = window.sessionStorage.setItem("dataCopy", data);
 ////////////////////show user his pin///////////////////
-document.getElementById("pin_user").innerTEXT = data;
+document.getElementById("pin_user").innerHTML = dataCopy;
 console.log(data);
+if (dataCopy == null) {
+  pin_user_card.classList.add("opacity-0");
+  pin_user_card.classList.add("pointer-events-none");
+}
 ////////////////////////////////////////////////////////
 ////////////////////  elements  /////////////////////////
 const log_out = document.querySelector("#log_out");
@@ -239,6 +244,7 @@ readAppointments(data);
 /////////////////////log out //////////////////////////////
 log_out.addEventListener("click", () => {
   window.sessionStorage.removeItem("data");
+  window.sessionStorage.removeItem("dataCopy");
   window.location.replace("http://localhost/hospital/front-end/public");
 });
 ///////////////////////////////////////////////////////////
