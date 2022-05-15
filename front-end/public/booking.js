@@ -3,7 +3,6 @@ const data = window.sessionStorage.getItem("data");
 const dataCopy = window.sessionStorage.getItem("dataCopy");
 ////////////////////show user his pin///////////////////
 document.getElementById("pin_user").innerHTML = dataCopy;
-console.log(dataCopy);
 if (dataCopy == null) {
   pin_user_card.classList.add("hidden");
 }
@@ -317,11 +316,16 @@ function AddAppointment() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data == true) {
+        if (data == "appointment exist") {
+          error.innerHTML = "appointment already exist";
+          date_appointment_el.classList.add("outline-red-500");
+          start_appointment_el.classList.add("outline-red-500");
+          end_appointment_el.classList.add("outline-red-500");
+        } else {
           window.location.reload();
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }
 }
 ///////////////////////////call AddAppointment function/////////////////////
