@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="style.css" />
     <title>MedcineNet | booking</title>
     <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(to right, #06b6d4, #3b82f6);
+        border-radius: 10px;
+      }
       td,
       th {
         border: 1px rgb(78, 78, 78) solid;
@@ -24,7 +40,7 @@
     >
       <a
         href="http://localhost/hospital/front-end/public/booking.html"
-        class="text-4xl"
+        class="lg:text-4xl md:text-3xl sm:text-2xl"
         >MedicineNet</a
       >
       <nav>
@@ -38,16 +54,21 @@
     <main class="bg-gradient-to-r from-grey-500 to-grey-300">
       <div
         id="pin_user_card"
-        class="bg-gradient-to-r from-cyan-500 to-blue-500 p-10 w-fit py-4 text-white text-center mx-auto rounded text-lg font-semibold tracking-widest mb-10 transition"
+        class="bg-gradient-to-r from-cyan-500 to-blue-500 p-10 w-fit py-4 text-white text-center mx-auto rounded md:text-lg font-semibold tracking-widest mb-10 transition text-sm sm:text-base"
       >
         Your Pin Authentification : <span id="pin_user"></span>
       </div>
-      <div class="text-center text-4xl font-semibold" id="error"></div>
+      <div
+        class="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold"
+        id="error"
+      ></div>
       <div class="flex flex-col w-10/12 mx-auto mb-9">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 cnt hidden">
           <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
-              <table class="min-w-full">
+              <table
+                class="min-w-full whitespace-nowrap lg:text-lg md:text-base sm:text-sm text-xs"
+              >
                 <thead class="border-b">
                   <tr>
                     <th scope="col" class="th">id</th>
@@ -73,10 +94,10 @@
       </div>
       <div
         id="add_form"
-        class="w-6/12 bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
+        class="w-full text-sm bg-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded duration-500 transition scale-0"
       >
         <form class="flex flex-col justify-between gap-4 bg-gray-600 rounded">
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="flex justify-between mx-auto flex-col gap-4">
             <h2 class="text-center font-semibold text-3xl text-gray-100 mt-6">
               Add Appointment
             </h2>
@@ -87,7 +108,7 @@
               id="topic"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="date_appointment"
               >date appointment</label
             >
@@ -98,7 +119,7 @@
               id="date_appointment"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="start_appointment"
               >start appointment</label
             >
@@ -109,7 +130,7 @@
               id="start_appointment"
             />
           </div>
-          <div class="w-7/12 flex justify-between mx-auto flex-col gap-4">
+          <div class="flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="end_appointment"
               >end appointment</label
             >
