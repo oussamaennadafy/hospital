@@ -1,5 +1,9 @@
 ///////////////////  session user  //////////////////////
 const data = window.sessionStorage.getItem("data");
+////////////////////show user his pin///////////////////
+document.getElementById("pin_user").innerTEXT = data;
+console.log(data);
+////////////////////////////////////////////////////////
 ////////////////////  elements  /////////////////////////
 const log_out = document.querySelector("#log_out");
 const error = document.querySelector("#error");

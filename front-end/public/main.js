@@ -79,7 +79,6 @@ function signUpUser() {
     .then((response) => response.json())
     .then((data) => {
       if (data != "error") {
-        console.log("error in front end");
         // console.log(data);
         newData = Object.values(data);
         // console.log(newData[0]);
