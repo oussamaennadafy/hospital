@@ -30,7 +30,7 @@ $appointment->id = isset($_POST['id']) ? $_POST['id'] : die('please entre the id
 //  echo'enter topic, date_appointment, start_appointment, end_appointment';
 // }
 
-echo $update_status = $appointment->updateAppointment()
+echo json_encode($appointment->updateAppointment());
 
 
 

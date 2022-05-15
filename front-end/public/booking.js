@@ -180,7 +180,20 @@ function readAppointments(key_special) {
                       )
                         .then((response) => response.json())
                         .then((data) => {
-                          window.location.reload();
+                          if (data == "appointment exist") {
+                            edit_error.innerHTML = "appointment already exist";
+                            date_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                            start_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                            end_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                          } else {
+                            window.location.reload();
+                          }
                         })
                         .catch((err) => console.log(err));
                     }

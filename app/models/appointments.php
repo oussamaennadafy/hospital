@@ -39,7 +39,7 @@ public function createAppointment(){
  $this->end_appointment=htmlspecialchars($this->end_appointment);
  $this->key_user=htmlspecialchars($this->key_user);
 
- $sqlQuery = "SELECT `id` FROM `appointment` WHERE `date_appointment` = '".$this->date_appointment."' AND `start_appointment` = '".$this->start_appointment."' AND `end_appointment` = '".$this->end_appointment."'";
+ $sqlQuery = "SELECT `id` FROM `appointment` WHERE `date_appointment` = '".$this->date_appointment."' AND `start_appointment` = '".$this->start_appointment."' OR `end_appointment` = '".$this->end_appointment."'";
  $record = $this->db->query($sqlQuery);
  $this->data=$record->fetch_all();
 
@@ -53,8 +53,7 @@ public function createAppointment(){
    date_appointment = '".$this->date_appointment."',
    start_appointment = '".$this->start_appointment."',
    end_appointment = '".$this->end_appointment."',
-   key_user = '".$this->key_user."'"
-   ;
+   key_user = '".$this->key_user."'";
    $this->db->query($sqlQuery);
    return "appointment created";
   }
@@ -111,7 +110,13 @@ $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
 $this->start_appointment=htmlspecialchars(strip_tags($this->start_appointment));
 $this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
 
-// if(!empty($this->topic) && !empty($this->date_appointment) && !empty($this->start_appointment) && !empty($this->end_appointment) && !empty($this->key_user)) {
+$sqlQuery = "SELECT `id` FROM `appointment` WHERE `date_appointment` = '".$this->date_appointment."' AND `start_appointment` = '".$this->start_appointment."' OR `end_appointment` = '".$this->end_appointment."'";
+$record = $this->db->query($sqlQuery);
+$this->data=$record->fetch_all();
+
+if($this->db->affected_rows > 0){
+ return "appointment exist";
+ } else {
 
 
  $sqlQuery = "UPDATE ". $this->db_table ." SET
@@ -120,16 +125,11 @@ $this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
  start_appointment = '".$this->start_appointment."',
  end_appointment = '".$this->end_appointment."'
  WHERE id = '".$this->id."' ";
- 
+
  $this->db->query($sqlQuery);
-
-// }
-
-
-if($this->db->affected_rows > 0){
-return true;
+ return "appointment created";
 }
-return false;
+
 }
 
 // DELETE
