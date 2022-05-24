@@ -94,8 +94,8 @@ function readAppointments(key_special) {
                   document.getElementById("topic_edit").value = data[1];
                   document.getElementById("date_appointment_edit").value =
                     data[2];
-                  // document.getElementById("time_appointment_edit").value =
-                  //   data[3];
+                  document.getElementById("time_appointment_edit").value =
+                    data[3];
                   var id_appointment_edit = data[0];
                   edit_appointment_btn.addEventListener("click", () => {
                     console.log("update");
