@@ -1,9 +1,9 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Max-age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+// header("Access-Control-Allow-Origin: *");
+// header("Content-Type: application/json; charset=UTF-8");
+// header("Access-Control-Allow-Methods: POST");
+// header("Access-Control-Max-age: 3600");
+// header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 
 include_once '../../config/database.php';
@@ -14,15 +14,21 @@ $db = $database->getConnection();
 $appointment = new appointment($db);
 
 
+echo json_encode($_POST['topic']);
+echo '<br>';
+echo json_encode($_POST['date_appointment']);
+echo '<br>';
+echo json_encode($_POST['time_appointment']);
+echo '<br>';
 
- //fill appointment object
- $appointment->topic = $_POST['topic'];
- $appointment->date_appointment = $_POST['date_appointment'];
- $appointment->start_appointment = $_POST['start_appointment'];
- $appointment->end_appointment = $_POST['end_appointment'];
- $appointment->key_user = $_POST['key_user'];
- //craeteAppintment
- echo json_encode($appointment->createAppointment());
+ // //fill appointment object
+ // $appointment->topic = $_POST['topic'];
+ // $appointment->date_appointment = $_POST['date_appointment'];
+ // $appointment->start_appointment = $_POST['start_appointment'];
+ // $appointment->end_appointment = $_POST['end_appointment'];
+ // $appointment->key_user = $_POST['key_user'];
+ // //craeteAppintment
+ // echo json_encode($appointment->createAppointment());
 
 
 // if($appointment->createAppointment()){

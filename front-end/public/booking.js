@@ -274,8 +274,6 @@ cancel_form_btn.addEventListener("click", () => {
 });
 ///////////////////////////add appointment function////////////////////////
 function AddAppointment() {
-  let today = new Date().toLocaleDateString();
-  today = today.split("/").reverse().join("-");
   const topic_el = document.getElementById("topic");
   const date_appointment_el = document.getElementById("date_appointment");
   const time_appointment_el = document.getElementById("time_appointment");
@@ -303,18 +301,9 @@ function AddAppointment() {
   } else {
     time_appointment_el.classList.remove("outline-red-500");
   }
-  //////////////////////////////////////////
-  if (+date_appointment_el.value < +today) {
-    date_appointment_el.classList.add("outline-red-500");
-    error.innerHTML = "please enter a valid date";
-  } else {
-    time_appointment_el.classList.remove("outline-red-500");
-  }
   console.log(topic.value);
   console.log(date_appointment.value);
   console.log(time_appointment.value);
-  console.log(sessionStorage.getItem("data"));
-  console.log(today);
   if (
     error.innerHTML != "please fill all inputs" &&
     error.innerHTML != "please enter a valid date"
@@ -331,14 +320,15 @@ function AddAppointment() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data == "appointment exist") {
-          error.innerHTML = "appointment already exist";
-          date_appointment_el.classList.add("outline-red-500");
-          start_appointment_el.classList.add("outline-red-500");
-          end_appointment_el.classList.add("outline-red-500");
-        } else {
-          window.location.reload();
-        }
+        // if (data == "appointment exist") {
+        //   error.innerHTML = "appointment already exist";
+        //   date_appointment_el.classList.add("outline-red-500");
+        //   start_appointment_el.classList.add("outline-red-500");
+        //   end_appointment_el.classList.add("outline-red-500");
+        // } else {
+        //   window.location.reload();
+        // }
+        console.log(data);
       })
       .catch((err) => console.error(err));
   }
