@@ -98,7 +98,6 @@ function readAppointments(key_special) {
                     data[3];
                   var id_appointment_edit = data[0];
                   edit_appointment_btn.addEventListener("click", () => {
-                    console.log("update");
                     ///////////////validation////////////////////
                     if (
                       edit_topic_el.value == null ||
@@ -144,12 +143,8 @@ function readAppointments(key_special) {
                         date_appointment_edit_el.value
                       );
                       data_to_update.append(
-                        "start_appointment",
-                        start_appointment_edit_el.value
-                      );
-                      data_to_update.append(
-                        "end_appointment",
-                        end_appointment_edit_el.value
+                        "time_appointment",
+                        time_appointment_edit_el.value
                       );
                       fetch(
                         "http://localhost/hospital/app/api/appointments/update.php",
@@ -160,20 +155,21 @@ function readAppointments(key_special) {
                       )
                         .then((response) => response.json())
                         .then((data) => {
-                          if (data == "appointment exist") {
-                            edit_error.innerHTML = "appointment already exist";
-                            date_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                            start_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                            end_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                          } else {
-                            window.location.reload();
-                          }
+                          // if (data == "appointment exist") {
+                          //   edit_error.innerHTML = "appointment already exist";
+                          //   date_appointment_edit_el.classList.add(
+                          //     "outline-red-500"
+                          //   );
+                          //   start_appointment_edit_el.classList.add(
+                          //     "outline-red-500"
+                          //   );
+                          //   end_appointment_edit_el.classList.add(
+                          //     "outline-red-500"
+                          //   );
+                          // } else {
+                          //   window.location.reload();
+                          // }
+                          console.log(data);
                         })
                         .catch((err) => console.log(err));
                     }

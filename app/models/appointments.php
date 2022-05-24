@@ -106,28 +106,21 @@ public function updateAppointment(){
 
 $this->topic=htmlspecialchars(strip_tags($this->topic));
 $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
-$this->start_appointment=htmlspecialchars(strip_tags($this->start_appointment));
-$this->end_appointment=htmlspecialchars(strip_tags($this->end_appointment));
+$this->time_appointment=htmlspecialchars(strip_tags($this->time_appointment));
 
-$sqlQuery = "SELECT `id` FROM `appointment` WHERE `date_appointment` = '".$this->date_appointment."' AND `start_appointment` = '".$this->start_appointment."' AND `end_appointment` = '".$this->end_appointment."'";
+$sqlQuery = "SELECT `id` FROM `appointment` WHERE 'date_appointment' = '".$this->date_appointment."' AND 'time_appointment' = '".$this->time_appointment."' ";
 $record = $this->db->query($sqlQuery);
-$this->data=$record->fetch_all();
+return $this->data=$record->fetch_all();
 
-if($this->db->affected_rows > 0){
- return "appointment exist";
- } else {
+// if($this->db->affected_rows > 0){
+//  return "appointment exist";
+//  } else {
 
+//  $sqlQuery = "UPDATE `appointment` SET `topic`='".$this->topic."',`date_appointment`='".$this->date_appointment."',`time_appointment`='".$this->time_appointment."' WHERE id = '".$this->id."'";
 
- $sqlQuery = "UPDATE ". $this->db_table ." SET
- topic = '".$this->topic."', 
- date_appointment = '".$this->date_appointment."',
- start_appointment = '".$this->start_appointment."',
- end_appointment = '".$this->end_appointment."'
- WHERE id = '".$this->id."' ";
-
- $this->db->query($sqlQuery);
- return "appointment created";
-}
+//  $this->db->query($sqlQuery);
+//  return "appointment updated";
+// }
 
 }
 

@@ -15,15 +15,14 @@ $appointment = new appointment($db);
 
 
 
-$appointment->id = isset($_POST['id']) ? $_POST['id'] : die('please entre the id');
+$appointment->id = $_POST['id'];
 
 
 // if(!empty($_POST['topic']) && !empty($_POST['date_appointment']) && !empty($_POST['start_appointment']) && !empty($_POST['end_appointment'])) {
 
  $appointment->topic = $_POST['topic'];
  $appointment->date_appointment = $_POST['date_appointment'];
- $appointment->start_appointment = $_POST['start_appointment'];
- $appointment->end_appointment = $_POST['end_appointment'];
+ $appointment->time_appointment = $_POST['time_appointment'];
  $appointment->id = $_POST['id'];
 
 // } else {
