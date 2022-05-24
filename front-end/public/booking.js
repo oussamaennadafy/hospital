@@ -275,19 +275,14 @@ cancel_form_btn.addEventListener("click", () => {
 ///////////////////////////add appointment function////////////////////////
 function AddAppointment() {
   let today = new Date().toLocaleDateString();
-
-  console.log(today);
+  today = today.split("/").reverse().join("-");
   const topic_el = document.getElementById("topic");
   const date_appointment_el = document.getElementById("date_appointment");
   const time_appointment_el = document.getElementById("time_appointment");
 
-  var topic = topic_el.value;
-  var date_appointment = date_appointment_el.value;
-  var time_appointment = time_appointment_el.value;
-
   var error = document.querySelector(".error");
 
-  if (topic == null || topic == "") {
+  if (topic_el.value == null || topic_el.value == "") {
     topic_el.classList.add("outline-red-500");
     error.innerHTML = "please fill all inputs";
   } else {
@@ -295,25 +290,39 @@ function AddAppointment() {
     error.innerHTML = "";
   }
   //////////////////////////////////////////
-  if (date_appointment == null || date_appointment == "") {
+  if (date_appointment_el.value == null || date_appointment_el.value == "") {
     date_appointment_el.classList.add("outline-red-500");
     error.innerHTML = "please fill all inputs";
   } else {
     date_appointment_el.classList.remove("outline-red-500");
   }
   //////////////////////////////////////////
-  if (time_appointment == null || time_appointment == "") {
+  if (time_appointment_el.value == null || time_appointment_el.value == "") {
     time_appointment_el.classList.add("outline-red-500");
     error.innerHTML = "please fill all inputs";
   } else {
     time_appointment_el.classList.remove("outline-red-500");
   }
-
-  if (error.innerHTML != "please fill all inputs") {
+  //////////////////////////////////////////
+  if (+date_appointment_el.value < +today) {
+    date_appointment_el.classList.add("outline-red-500");
+    error.innerHTML = "please enter a valid date";
+  } else {
+    time_appointment_el.classList.remove("outline-red-500");
+  }
+  console.log(topic.value);
+  console.log(date_appointment.value);
+  console.log(time_appointment.value);
+  console.log(sessionStorage.getItem("data"));
+  console.log(today);
+  if (
+    error.innerHTML != "please fill all inputs" &&
+    error.innerHTML != "please enter a valid date"
+  ) {
     let data = new FormData();
-    data.append("topic", topic);
-    data.append("date_appointment", date_appointment);
-    data.append("time_appointment", time_appointment);
+    data.append("topic", topic.value);
+    data.append("date_appointment", date_appointment.value);
+    data.append("time_appointment", time_appointment.value);
     data.append("key_user", sessionStorage.getItem("data"));
 
     fetch("http://localhost/hospital/app/api/appointments/create.php", {
