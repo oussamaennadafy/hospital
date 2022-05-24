@@ -192,26 +192,22 @@
             />
           </div>
           <div class="w-full px-4 flex justify-between mx-auto flex-col gap-4">
-            <label class="text-lg text-white" for="start_appointment_edit"
-              >start appointment</label
-            >
-            <input
-              class="w-1/1 p-2 rounded outline-none md:text-lg"
-              type="time"
-              name="start_appointment_edit"
-              id="start_appointment_edit"
-            />
-          </div>
-          <div class="w-full px-4 flex justify-between mx-auto flex-col gap-4">
             <label class="text-lg text-white" for="end_appointment_edit"
-              >end appointment</label
+              >time appointment</label
             >
-            <input
+            <select
               class="w-1/1 p-2 rounded outline-none md:text-lg"
-              type="time"
-              name="end_appointment_edit"
-              id="end_appointment_edit"
-            />
+              name="time_appointment_edit"
+              id="time_appointment"
+            >
+              <option value="8:00-9:00">8:00-9:00</option>
+              <option value="9:00-10:00">9:00-10:00</option>
+              <option value="10:00-11:00">10:00-11:00</option>
+              <option value="11:00-12:00">11:00-12:00</option>
+              <option value="14:00-15:00">14:00-15:00</option>
+              <option value="15:00-16:00">15:00-16:00</option>
+              <option value="16:00-17:00">16:00-17:00</option>
+            </select>
             <p
               class="edit_error text-center text-lg font-medium text-red-400"
             ></p>

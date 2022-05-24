@@ -32,7 +32,6 @@ function readAppointments(key_special) {
           /////////////////remove last item for each array data////////////////////
           for (let i = 0; i < data.length; i++) {
             data[i].pop();
-            // console.log(data[0][0]);
           }
           // Get a reference to the table
           let tableRef = document.getElementById("table");
@@ -78,126 +77,107 @@ function readAppointments(key_special) {
               )
                 .then((response) => response.json())
                 .then((data) => {
+                  console.log(data);
                   ///////////edit form inputs/////////////////
-                  const edit_topic_el = document.getElementById("topic_edit");
-                  const date_appointment_edit_el = document.getElementById(
-                    "date_appointment_edit"
-                  );
-                  const start_appointment_edit_el = document.getElementById(
-                    "start_appointment_edit"
-                  );
-                  const end_appointment_edit_el = document.getElementById(
-                    "end_appointment_edit"
-                  );
-                  //////btn edit//////////
-                  const edit_appointment_btn = document.getElementById(
-                    "edit_appointment_btn"
-                  );
-                  const edit_error = document.querySelector(".edit_error");
-                  ////////////////////////////////////////////
-                  document.getElementById("topic_edit").value = data[1];
-                  document.getElementById("date_appointment_edit").value =
-                    data[2];
-                  document.getElementById("start_appointment_edit").value =
-                    data[3];
-                  document.getElementById("end_appointment_edit").value =
-                    data[4];
-                  var id_appointment_edit = data[0];
-                  edit_appointment_btn.addEventListener("click", () => {
-                    ///////////////validation////////////////////
-                    if (
-                      edit_topic_el.value == null ||
-                      edit_topic_el.value == ""
-                    ) {
-                      edit_topic_el.classList.add("outline-red-500");
-                      edit_error.innerHTML = "please fill all inputs";
-                    } else {
-                      edit_topic_el.classList.remove("outline-red-500");
-                      edit_error.innerHTML = "";
-                    }
-                    //////////////////////////////////////////
-                    if (
-                      date_appointment_edit_el.value == null ||
-                      date_appointment_edit_el.value == ""
-                    ) {
-                      date_appointment_edit_el.classList.add("outline-red-500");
-                      edit_error.innerHTML = "please fill all inputs";
-                    } else {
-                      date_appointment_edit_el.classList.remove(
-                        "outline-red-500"
-                      );
-                    }
-                    //////////////////////////////////////////
-                    if (
-                      start_appointment_edit_el.value == null ||
-                      start_appointment_edit_el.value == ""
-                    ) {
-                      start_appointment_edit_el.classList.add(
-                        "outline-red-500"
-                      );
-                      edit_error.innerHTML = "please fill all inputs";
-                    } else {
-                      start_appointment_edit_el.classList.remove(
-                        "outline-red-500"
-                      );
-                    }
-                    //////////////////////////////////////////
-                    if (
-                      end_appointment_edit_el.value == null ||
-                      end_appointment_edit_el.value == ""
-                    ) {
-                      end_appointment_edit_el.classList.add("outline-red-500");
-                      edit_error.innerHTML = "please fill all inputs";
-                    } else {
-                      end_appointment_edit_el.classList.remove(
-                        "outline-red-500"
-                      );
-                    }
-                    /////////////////////////////////////////////
-                    if (edit_error.innerHTML != "please fill all inputs") {
-                      let data_to_update = new FormData();
-                      data_to_update.append("id", id_appointment_edit);
-                      data_to_update.append("topic", edit_topic_el.value);
-                      data_to_update.append(
-                        "date_appointment",
-                        date_appointment_edit_el.value
-                      );
-                      data_to_update.append(
-                        "start_appointment",
-                        start_appointment_edit_el.value
-                      );
-                      data_to_update.append(
-                        "end_appointment",
-                        end_appointment_edit_el.value
-                      );
-
-                      fetch(
-                        "http://localhost/hospital/app/api/appointments/update.php",
-                        {
-                          method: "post",
-                          body: data_to_update,
-                        }
-                      )
-                        .then((response) => response.json())
-                        .then((data) => {
-                          if (data == "appointment exist") {
-                            edit_error.innerHTML = "appointment already exist";
-                            date_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                            start_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                            end_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                          } else {
-                            window.location.reload();
-                          }
-                        })
-                        .catch((err) => console.log(err));
-                    }
-                  });
+                  // const edit_topic_el = document.getElementById("topic_edit");
+                  // const date_appointment_edit_el = document.getElementById(
+                  //   "date_appointment_edit"
+                  // );
+                  // const time_appointment_edit_el = document.getElementById(
+                  //   "time_appointment_edit"
+                  // );
+                  // //////btn edit//////////
+                  // const edit_appointment_btn = document.getElementById(
+                  //   "edit_appointment_btn"
+                  // );
+                  // const edit_error = document.querySelector(".edit_error");
+                  // ////////////////////////////////////////////
+                  // document.getElementById("topic_edit").value = data[1];
+                  // document.getElementById("date_appointment_edit").value =
+                  //   data[2];
+                  // document.getElementById("time_appointment_edit").value =
+                  //   data[3];
+                  // var id_appointment_edit = data[0];
+                  // edit_appointment_btn.addEventListener("click", () => {
+                  //   ///////////////validation////////////////////
+                  //   if (
+                  //     edit_topic_el.value == null ||
+                  //     edit_topic_el.value == ""
+                  //   ) {
+                  //     edit_topic_el.classList.add("outline-red-500");
+                  //     edit_error.innerHTML = "please fill all inputs";
+                  //   } else {
+                  //     edit_topic_el.classList.remove("outline-red-500");
+                  //     edit_error.innerHTML = "";
+                  //   }
+                  //   //////////////////////////////////////////
+                  //   if (
+                  //     date_appointment_edit_el.value == null ||
+                  //     date_appointment_edit_el.value == ""
+                  //   ) {
+                  //     date_appointment_edit_el.classList.add("outline-red-500");
+                  //     edit_error.innerHTML = "please fill all inputs";
+                  //   } else {
+                  //     date_appointment_edit_el.classList.remove(
+                  //       "outline-red-500"
+                  //     );
+                  //   }
+                  //   //////////////////////////////////////////
+                  //   if (
+                  //     time_appointment_edit_el.value == null ||
+                  //     time_appointment_edit_el.value == ""
+                  //   ) {
+                  //     time_appointment_edit_el.classList.add("outline-red-500");
+                  //     edit_error.innerHTML = "please fill all inputs";
+                  //   } else {
+                  //     time_appointment_edit_el.classList.remove(
+                  //       "outline-red-500"
+                  //     );
+                  //   }
+                  //   /////////////////////////////////////////////
+                  //   if (edit_error.innerHTML != "please fill all inputs") {
+                  //     let data_to_update = new FormData();
+                  //     data_to_update.append("id", id_appointment_edit);
+                  //     data_to_update.append("topic", edit_topic_el.value);
+                  //     data_to_update.append(
+                  //       "date_appointment",
+                  //       date_appointment_edit_el.value
+                  //     );
+                  //     data_to_update.append(
+                  //       "start_appointment",
+                  //       start_appointment_edit_el.value
+                  //     );
+                  //     data_to_update.append(
+                  //       "end_appointment",
+                  //       end_appointment_edit_el.value
+                  //     );
+                  //     fetch(
+                  //       "http://localhost/hospital/app/api/appointments/update.php",
+                  //       {
+                  //         method: "post",
+                  //         body: data_to_update,
+                  //       }
+                  //     )
+                  //       .then((response) => response.json())
+                  //       .then((data) => {
+                  //         if (data == "appointment exist") {
+                  //           edit_error.innerHTML = "appointment already exist";
+                  //           date_appointment_edit_el.classList.add(
+                  //             "outline-red-500"
+                  //           );
+                  //           start_appointment_edit_el.classList.add(
+                  //             "outline-red-500"
+                  //           );
+                  //           end_appointment_edit_el.classList.add(
+                  //             "outline-red-500"
+                  //           );
+                  //         } else {
+                  //           window.location.reload();
+                  //         }
+                  //       })
+                  //       .catch((err) => console.log(err));
+                  //   }
+                  // });
                 });
             }
             //////////////////////////////////////////////////////
@@ -301,9 +281,6 @@ function AddAppointment() {
   } else {
     time_appointment_el.classList.remove("outline-red-500");
   }
-  console.log(topic.value);
-  console.log(date_appointment.value);
-  console.log(time_appointment.value);
   if (
     error.innerHTML != "please fill all inputs" &&
     error.innerHTML != "please enter a valid date"
@@ -320,15 +297,17 @@ function AddAppointment() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // if (data == "appointment exist") {
-        //   error.innerHTML = "appointment already exist";
-        //   date_appointment_el.classList.add("outline-red-500");
-        //   start_appointment_el.classList.add("outline-red-500");
-        //   end_appointment_el.classList.add("outline-red-500");
-        // } else {
-        //   window.location.reload();
-        // }
-        console.log(data);
+        if (data == "invalid_date") {
+          date_appointment_el.classList.add("outline-red-500");
+          error.textContent = "invalid date";
+        } else if (data == "appointment exist") {
+          error.innerHTML = "appointment already exist";
+          date_appointment_el.classList.add("outline-red-500");
+          time_appointment_el.classList.add("outline-red-500");
+        } else {
+          time_appointment_el.classList.remove("outline-red-500");
+          window.location.reload();
+        }
       })
       .catch((err) => console.error(err));
   }
