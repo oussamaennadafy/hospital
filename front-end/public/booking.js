@@ -274,15 +274,16 @@ cancel_form_btn.addEventListener("click", () => {
 });
 ///////////////////////////add appointment function////////////////////////
 function AddAppointment() {
+  let today = new Date().toLocaleDateString();
+
+  console.log(today);
   const topic_el = document.getElementById("topic");
   const date_appointment_el = document.getElementById("date_appointment");
-  const start_appointment_el = document.getElementById("start_appointment");
-  const end_appointment_el = document.getElementById("end_appointment");
+  const time_appointment_el = document.getElementById("time_appointment");
 
   var topic = topic_el.value;
   var date_appointment = date_appointment_el.value;
-  var start_appointment = start_appointment_el.value;
-  var end_appointment = end_appointment_el.value;
+  var time_appointment = time_appointment_el.value;
 
   var error = document.querySelector(".error");
 
@@ -301,26 +302,18 @@ function AddAppointment() {
     date_appointment_el.classList.remove("outline-red-500");
   }
   //////////////////////////////////////////
-  if (start_appointment == null || start_appointment == "") {
-    start_appointment_el.classList.add("outline-red-500");
+  if (time_appointment == null || time_appointment == "") {
+    time_appointment_el.classList.add("outline-red-500");
     error.innerHTML = "please fill all inputs";
   } else {
-    start_appointment_el.classList.remove("outline-red-500");
-  }
-  //////////////////////////////////////////
-  if (end_appointment == null || end_appointment == "") {
-    end_appointment_el.classList.add("outline-red-500");
-    error.innerHTML = "please fill all inputs";
-  } else {
-    end_appointment_el.classList.remove("outline-red-500");
+    time_appointment_el.classList.remove("outline-red-500");
   }
 
   if (error.innerHTML != "please fill all inputs") {
     let data = new FormData();
     data.append("topic", topic);
     data.append("date_appointment", date_appointment);
-    data.append("start_appointment", start_appointment);
-    data.append("end_appointment", end_appointment);
+    data.append("time_appointment", time_appointment);
     data.append("key_user", sessionStorage.getItem("data"));
 
     fetch("http://localhost/hospital/app/api/appointments/create.php", {
