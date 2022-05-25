@@ -20,7 +20,7 @@ $user = new user($db);
   $user->last_name = $_POST['last_name'];
   $user->age = $_POST['age'];
   $user->birth = $_POST['birth'];
-  $user->key_special = str_replace('.','', explode(' ', date('YmdHis').microtime())[0]);
+  $user->key_special = str_replace('.','', explode(' ', date('YmdHis'))[0]);
  }
 
 if($user->createUser()){
