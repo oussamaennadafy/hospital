@@ -155,21 +155,49 @@ function readAppointments(key_special) {
                       )
                         .then((response) => response.json())
                         .then((data) => {
-                          // if (data == "appointment exist") {
-                          //   edit_error.innerHTML = "appointment already exist";
-                          //   date_appointment_edit_el.classList.add(
-                          //     "outline-red-500"
-                          //   );
-                          //   start_appointment_edit_el.classList.add(
-                          //     "outline-red-500"
-                          //   );
-                          //   end_appointment_edit_el.classList.add(
-                          //     "outline-red-500"
-                          //   );
-                          // } else {
-                          //   window.location.reload();
-                          // }
-                          console.log(data);
+                          //////////////////////////////////
+                          //////////////////////////////////
+                          if (data == "appointment exist") {
+                            document.querySelector(".edit_error").innerHTML =
+                              "appointment already exist";
+                            date_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                            time_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                          }
+                          //////////////////////////////////
+                          //////////////////////////////////
+                          if (data == "nothing to update") {
+                            document.querySelector(".edit_error").innerHTML =
+                              "nothing to update";
+                            // date_appointment_edit_el.classList.add(
+                            //   "outline-red-500"
+                            // );
+                            // time_appointment_edit_el.classList.add(
+                            //   "outline-red-500"
+                            // );
+                            console.log("nothing to update");
+                          }
+                          //////////////////////////////////
+                          //////////////////////////////////
+                          if (data == "invalid date") {
+                            document.querySelector(".edit_error").innerHTML =
+                              "invalid date";
+                            date_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                            time_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                          }
+                          //////////////////////////////////
+                          //////////////////////////////////
+                          if (data == "appointment updated") {
+                            location.reload();
+                          }
+                          //////////////////////////////////
                         })
                         .catch((err) => console.log(err));
                     }

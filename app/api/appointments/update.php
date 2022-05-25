@@ -15,8 +15,6 @@ $appointment = new appointment($db);
 
 
 
-$appointment->id = $_POST['id'];
-
 
 // if(!empty($_POST['topic']) && !empty($_POST['date_appointment']) && !empty($_POST['start_appointment']) && !empty($_POST['end_appointment'])) {
 

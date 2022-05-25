@@ -104,23 +104,48 @@ if($this->db->affected_rows > 0){
 // UPDATE
 public function updateAppointment(){
 
+
 $this->topic=htmlspecialchars(strip_tags($this->topic));
 $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
 $this->time_appointment=htmlspecialchars(strip_tags($this->time_appointment));
 
-$sqlQuery = "SELECT `id` FROM `appointment` WHERE 'date_appointment' = '".$this->date_appointment."' AND 'time_appointment' = '".$this->time_appointment."' ";
+
+
+$sqlQuery = "SELECT `id` FROM ". $this->db_table ." WHERE date_appointment = '".$this->date_appointment ."' And time_appointment = '" .$this->time_appointment."'";
+
+
+
 $record = $this->db->query($sqlQuery);
-return $this->data=$record->fetch_all();
+$this->data=$record->fetch_all();
 
-// if($this->db->affected_rows > 0){
-//  return "appointment exist";
-//  } else {
+// echo json_encode([$this->db->affected_rows , $this->data[0][0] , $this->id]);
 
-//  $sqlQuery = "UPDATE `appointment` SET `topic`='".$this->topic."',`date_appointment`='".$this->date_appointment."',`time_appointment`='".$this->time_appointment."' WHERE id = '".$this->id."'";
 
-//  $this->db->query($sqlQuery);
-//  return "appointment updated";
-// }
+if($this->db->affected_rows == 0) {
+ if($this->date_appointment >= date('Y-m-d')) {
+  $sqlQuery = "UPDATE `appointment` SET `topic`='".$this->topic."',`date_appointment`='".$this->date_appointment."',`time_appointment`='".$this->time_appointment."' WHERE id = '".$this->id."'";
+ 
+  // echo json_encode($sqlQuery);
+  // exit;
+ 
+  // $this->db->query($sqlQuery);
+  return "appointment updated"; 
+ } else {
+  return "invalid date"; 
+ }
+
+ }
+
+ if($this->db->affected_rows > 0) {
+  if($this->data[0][0] == $this->id) { 
+
+   return "nothing to update";
+
+  }
+  return "appointment exist";
+ }
+
+
 
 }
 
