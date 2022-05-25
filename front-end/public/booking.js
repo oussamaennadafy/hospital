@@ -89,7 +89,7 @@ function readAppointments(key_special) {
                   const edit_appointment_btn = document.getElementById(
                     "edit_appointment_btn"
                   );
-                  const edit_error = document.querySelector(".edit_error");
+                  const error_edit = document.querySelector(".error_edit");
                   ////////////////////////////////////////////
                   document.getElementById("topic_edit").value = data[1];
                   document.getElementById("date_appointment_edit").value =
@@ -104,10 +104,10 @@ function readAppointments(key_special) {
                       edit_topic_el.value == ""
                     ) {
                       edit_topic_el.classList.add("outline-red-500");
-                      edit_error.innerHTML = "please fill all inputs";
+                      error_edit.innerHTML = "please fill all inputs";
                     } else {
                       edit_topic_el.classList.remove("outline-red-500");
-                      edit_error.innerHTML = "";
+                      error_edit.innerHTML = "";
                     }
                     //////////////////////////////////////////
                     if (
@@ -115,7 +115,7 @@ function readAppointments(key_special) {
                       date_appointment_edit_el.value == ""
                     ) {
                       date_appointment_edit_el.classList.add("outline-red-500");
-                      edit_error.innerHTML = "please fill all inputs";
+                      error_edit.innerHTML = "please fill all inputs";
                     } else {
                       date_appointment_edit_el.classList.remove(
                         "outline-red-500"
@@ -127,14 +127,14 @@ function readAppointments(key_special) {
                       time_appointment_edit_el.value == ""
                     ) {
                       time_appointment_edit_el.classList.add("outline-red-500");
-                      edit_error.innerHTML = "please fill all inputs";
+                      error_edit.innerHTML = "please fill all inputs";
                     } else {
                       time_appointment_edit_el.classList.remove(
                         "outline-red-500"
                       );
                     }
                     /////////////////////////////////////////////
-                    if (edit_error.innerHTML != "please fill all inputs") {
+                    if (error_edit.innerHTML != "please fill all inputs") {
                       let data_to_update = new FormData();
                       data_to_update.append("id", id_appointment_edit);
                       data_to_update.append("topic", edit_topic_el.value);
@@ -156,47 +156,13 @@ function readAppointments(key_special) {
                         .then((response) => response.json())
                         .then((data) => {
                           //////////////////////////////////
-                          //////////////////////////////////
-                          if (data == "appointment exist") {
-                            document.querySelector(".edit_error").innerHTML =
-                              "appointment already exist";
-                            date_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                            time_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                          }
-                          //////////////////////////////////
-                          //////////////////////////////////
-                          if (data == "nothing to update") {
-                            document.querySelector(".edit_error").innerHTML =
-                              "nothing to update";
-                            // date_appointment_edit_el.classList.add(
-                            //   "outline-red-500"
-                            // );
-                            // time_appointment_edit_el.classList.add(
-                            //   "outline-red-500"
-                            // );
-                            console.log("nothing to update");
-                          }
-                          //////////////////////////////////
-                          //////////////////////////////////
-                          if (data == "invalid date") {
-                            document.querySelector(".edit_error").innerHTML =
-                              "invalid date";
-                            date_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                            time_appointment_edit_el.classList.add(
-                              "outline-red-500"
-                            );
-                          }
-                          //////////////////////////////////
-                          //////////////////////////////////
                           if (data == "appointment updated") {
                             location.reload();
+                          } else {
+                            document.querySelector(".error_edit").textContent =
+                              data;
                           }
+                          // console.log(data);
                           //////////////////////////////////
                         })
                         .catch((err) => console.log(err));

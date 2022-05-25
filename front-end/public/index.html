@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="font-Lato overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,33 +12,30 @@
         -webkit-appearance: none;
         margin: 0;
       }
+      body {
+        overflow-x: hidden;
+      }
     </style>
   </head>
-  <body class="font-Lato overflow-hidden">
+  <body>
     <img
       src="assets/bg-img.jpg"
       alt=""
       class="opacity-80 w-screen absolute z-0 min-h-full object-cover"
     />
     <header
-      class="z-10 absolute w-full h-[82px] bg-gradient-to-r from-sky-500 to-indigo-700 text-gray-300 flex items-center justify-between px-6"
+      class="z-10 absolute w-full h-[82px] bg-gradient-to-r from-sky-500 to-indigo-700 text-gray-300 flex items-center justify-between px-2"
     >
-      <a href="index.html" class="text-xl">MedicineNet</a>
+      <a href="index.html" class="text-lg">MedicineNet</a>
       <nav>
         <ul
-          class="flex items-center justify-between gap-4 text-sm sm:text-base lg:text-lg"
+          class="flex items-center justify-between gap-4 text-xs sm:text-sm lg:text-lg"
         >
           <li>
-            <a href="#" class="">welcome</a>
+            <a href="#">log in</a>
           </li>
           <li>
-            <a href="#">our services</a>
-          </li>
-          <li>
-            <a href="#">about us</a>
-          </li>
-          <li>
-            <a href="#">contact us</a>
+            <a href="#">sign up</a>
           </li>
         </ul>
       </nav>
@@ -104,11 +101,9 @@
         </p>
       </div>
       <div
-        class="Authentication absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex z-20 flex-col gap-6 w-1/2 items-center justify-center transition-all duration-300"
+        class="Authentication absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex z-20 flex-col gap-4 w-1/2 items-center justify-center transition-all duration-300"
       >
-        <h1 class="text-4xl text-white text-bold mb-9 z-10">
-          Authentification
-        </h1>
+        <h1 class="text-lg text-white text-bold mb-2 z-10">Authentification</h1>
         <form
           action="#"
           class="flex z-10 flex-col justify-center items-center gap-4 w-1/1"
@@ -119,7 +114,7 @@
           <input
             type="number"
             id="key_special"
-            class="w-80 h-10 outline outline-1 outline-offset-1 transition-all duration-75 rounded-lg px-2 text-center text-xl text-teal-800 mb-4"
+            class="w-40 sm:w-60 md:w-72 lg:w-96 h-8 sm:h-10 outline outline-1 outline-offset-1 transition-all duration-75 rounded-lg px-2 text-center text-xl text-teal-800 mb-1"
           />
           <p
             style="color: rgb(211, 29, 29)"
@@ -130,12 +125,12 @@
             type="button"
             value="log in"
             id="login_submit"
-            class="px-8 py-3 block rounded bg-gradient-to-r uppercase from-sky-900 to-cyan-200 cursor-pointer text-white"
+            class="px-6 py-2 block rounded bg-gradient-to-r uppercase from-sky-900 to-cyan-200 cursor-pointer text-white"
           />
         </form>
-        <p class="text-white text-lg z-10">
+        <p class="text-white text-sm z-10 whitespace-nowrap">
           don't have account ?<span
-            class="signUp_btn ml-4 border-b-2 cursor-pointer hover:text-black transition-all hover:border-black uppercase"
+            class="signUp_btn text-sm ml-4 border-b-2 cursor-pointer hover:text-black transition-all hover:border-black uppercase"
             >sign up</span
           >
         </p>

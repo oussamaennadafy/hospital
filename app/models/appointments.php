@@ -108,6 +108,7 @@ public function updateAppointment(){
 $this->topic=htmlspecialchars(strip_tags($this->topic));
 $this->date_appointment=htmlspecialchars(strip_tags($this->date_appointment));
 $this->time_appointment=htmlspecialchars(strip_tags($this->time_appointment));
+$this->id=htmlspecialchars(strip_tags($this->id));
 
 
 
@@ -117,8 +118,6 @@ $sqlQuery = "SELECT `id` FROM ". $this->db_table ." WHERE date_appointment = '".
 
 $record = $this->db->query($sqlQuery);
 $this->data=$record->fetch_all();
-
-// echo json_encode([$this->db->affected_rows , $this->data[0][0] , $this->id]);
 
 
 if($this->db->affected_rows == 0) {
@@ -136,13 +135,25 @@ if($this->db->affected_rows == 0) {
 
  }
 
- if($this->db->affected_rows > 0) {
-  if($this->data[0][0] == $this->id) { 
 
-   return "nothing to update";
+ if($this->date_appointment >= date('Y-m-d')) {
 
-  }
-  return "appointment exist";
+
+  if($this->db->affected_rows > 0) {
+   if($this->data[0][0] == $this->id) { 
+ 
+    return "nothing to update";
+ 
+   }
+   return "appointment exist";
+
+ } 
+
+
+
+  // return "appointment exist";
+ } else {
+  return "invalid date"; 
  }
 
 
