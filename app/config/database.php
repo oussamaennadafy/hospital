@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('africa/casablanca');
+
  class Database {
   public $db;
   public function getConnection()
