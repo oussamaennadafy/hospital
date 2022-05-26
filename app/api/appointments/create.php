@@ -16,14 +16,20 @@ $appointment = new appointment($db);
 
 // echo json_encode([$_POST['topic'],$_POST['date_appointment'],$_POST['time_appointment'],$_POST['key_user']]);
 
-if($_POST['date_appointment'] >= date('Y-m-d')) {
+if($_GET['date_appointment'] >= date('Y-m-d')) {
+  if($_GET['date_appointment'] != date('Y-m-d')) {
   //fill appointment object
-  $appointment->topic = $_POST['topic'];
-  $appointment->time_appointment = $_POST['time_appointment'];
-  $appointment->date_appointment = $_POST['date_appointment'];
-  $appointment->key_user = $_POST['key_user'];
+  $appointment->topic = $_GET['topic'];
+  $appointment->time_appointment = $_GET['time_appointment'];
+  $appointment->date_appointment = $_GET['date_appointment'];
+  $appointment->key_user = $_GET['key_user'];
   //craeteAppintment
   echo json_encode($appointment->createAppointment()); 
+  } else {
+    if(explode('-',$_GET['time_appointment'])[0] <= date('H:i')) {
+      echo json_encode('invalid_time');
+    }
+  }
 } else {
  echo json_encode(['invalid_date']);
 }
