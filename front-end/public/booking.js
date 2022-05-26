@@ -287,17 +287,20 @@ function AddAppointment() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // if (data == "invalid_date") {
-        //   date_appointment_el.classList.add("outline-red-500");
-        //   error.textContent = "invalid date";
-        // } else if (data == "appointment exist") {
-        //   error.innerHTML = "appointment already exist";
-        //   date_appointment_el.classList.add("outline-red-500");
-        //   time_appointment_el.classList.add("outline-red-500");
-        // } else {
-        //   time_appointment_el.classList.remove("outline-red-500");
-        //   window.location.reload();
-        // }
+        if (data == "invalid_date") {
+          date_appointment_el.classList.add("outline-red-500");
+          error.textContent = "invalid date";
+        } else if (data == "appointment exist") {
+          error.innerHTML = "appointment already exist";
+          date_appointment_el.classList.add("outline-red-500");
+          time_appointment_el.classList.add("outline-red-500");
+        } else if (data == "time_passed") {
+          error.innerHTML = "time passed";
+          time_appointment_el.classList.add("outline-red-500");
+        } else {
+          time_appointment_el.classList.remove("outline-red-500");
+          window.location.reload();
+        }
         console.log(data);
       })
       .catch((err) => console.error(err));

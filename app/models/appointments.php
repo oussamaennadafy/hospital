@@ -124,7 +124,7 @@ if($this->db->affected_rows == 0) {
  if($this->date_appointment >= date('Y-m-d')) {
   $sqlQuery = "UPDATE `appointment` SET `topic`='".$this->topic."',`date_appointment`='".$this->date_appointment."',`time_appointment`='".$this->time_appointment."' WHERE id = '".$this->id."'";
   $this->db->query($sqlQuery);
-  return "appointment updated"; 
+  return "appointment_updated"; 
  } else {
   return "invalid date"; 
  }
