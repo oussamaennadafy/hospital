@@ -156,13 +156,32 @@ function readAppointments(key_special) {
                         .then((response) => response.json())
                         .then((data) => {
                           //////////////////////////////////
-                          if (data == "appointment updated") {
-                            location.reload();
+                          if (data == "invalid date") {
+                            date_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                            error_edit.textContent = "invalid date";
+                          } else if (data == "appointment exist") {
+                            error_edit.innerHTML = "appointment already exist";
+                            date_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                            time_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                          } else if (data == "time_passed") {
+                            error_edit.innerHTML = "time passed";
+                            time_appointment_edit_el.classList.add(
+                              "outline-red-500"
+                            );
+                          } else if (data == "nothing to update") {
+                            error_edit.innerHTML = "nothing to update";
                           } else {
-                            document.querySelector(".error_edit").textContent =
-                              data;
+                            time_appointment_edit_el.classList.remove(
+                              "outline-red-500"
+                            );
+                            window.location.reload();
                           }
-                          // console.log(data);
                           //////////////////////////////////
                         })
                         .catch((err) => console.log(err));
@@ -301,7 +320,6 @@ function AddAppointment() {
           time_appointment_el.classList.remove("outline-red-500");
           window.location.reload();
         }
-        console.log(data);
       })
       .catch((err) => console.error(err));
   }

@@ -112,7 +112,9 @@ $this->id=htmlspecialchars(strip_tags($this->id));
 
 
 
-$sqlQuery = "SELECT `id` FROM ". $this->db_table ." WHERE date_appointment = '".$this->date_appointment ."' And time_appointment = '" .$this->time_appointment."'";
+$sqlQuery = "SELECT `id` FROM ". $this->db_table ." WHERE topic = '".$this->topic ."' And 
+date_appointment = '".$this->date_appointment ."' And 
+time_appointment = '" .$this->time_appointment."'";
 
 
 
@@ -121,12 +123,22 @@ $this->data=$record->fetch_all();
 
 
 if($this->db->affected_rows == 0) {
- if($this->date_appointment >= date('Y-m-d')) {
+ if($this->date_appointment > date('Y-m-d')) {
   $sqlQuery = "UPDATE `appointment` SET `topic`='".$this->topic."',`date_appointment`='".$this->date_appointment."',`time_appointment`='".$this->time_appointment."' WHERE id = '".$this->id."'";
   $this->db->query($sqlQuery);
   return "appointment_updated"; 
- } else {
-  return "invalid date"; 
+ } 
+ if($this->date_appointment == date('Y-m-d')) {
+
+  if( intval(explode(':',explode('-',$this->time_appointment)[0])[0]) <= intval(date('H')) ) {
+    return "time_passed";
+  } else {
+    $sqlQuery = "UPDATE `appointment` SET `topic`='".$this->topic."',`date_appointment`='".$this->date_appointment."',`time_appointment`='".$this->time_appointment."' WHERE id = '".$this->id."'";
+  $this->db->query($sqlQuery);
+  return "appointment_updated"; 
+  }
+
+
  }
 
  }

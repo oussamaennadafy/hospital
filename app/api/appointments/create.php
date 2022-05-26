@@ -28,17 +28,20 @@ if($_POST['date_appointment'] > date('Y-m-d')) {
 
 
 if($_POST['date_appointment'] == date('Y-m-d')) {
-  if(explode('-',$_POST['time_appointment'])[0] > date('H,i')) {
-      //fill appointment object
+  // echo json_encode([intval(explode(':',explode('-',$_POST['time_appointment'])[0])[0]),intval(date('H'))]);
+
+  if( intval(explode(':',explode('-',$_POST['time_appointment'])[0])[0]) <= intval(date('H')) ) {
+    echo json_encode('time_passed');
+  } else {
+    //fill appointment object
   $appointment->topic = $_POST['topic'];
   $appointment->time_appointment = $_POST['time_appointment'];
   $appointment->date_appointment = $_POST['date_appointment'];
   $appointment->key_user = $_POST['key_user'];
   //craeteAppintment
   echo json_encode($appointment->createAppointment()); 
-  } else {
-    echo json_encode('time_passed');
   }
+
 }
 
 
